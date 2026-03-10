@@ -643,7 +643,7 @@ textarea.field-input { resize: none; }
     <button class="nav-tab" onclick="filterTab('other',this)">💡 Other</button>
   </div>
   <div class="nav-right">
-    <span class="nav-balance" id="nav-balance" style="display:none">KSh 0</span>
+    <span class="nav-balance" id="nav-balance" style="display:none;cursor:pointer" onclick="openDeposit()">KSh 0 💳</span>
     <button class="btn btn-ghost" id="btn-login" onclick="openAuth()">Sign In</button>
     <button class="btn btn-primary" id="btn-register" onclick="openAuth('register')">Register</button>
     <button class="btn btn-primary" id="btn-new-market" style="display:none" onclick="openCreateMarket()">+ Market</button>
@@ -668,7 +668,8 @@ textarea.field-input { resize: none; }
     <div class="sidebar-section">
       <div class="sidebar-label">Account</div>
       <button class="sidebar-item" id="sb-portfolio" onclick="openAuth()" style="display:none"><span class="sidebar-icon">📊</span>Portfolio</button>
-      <button class="sidebar-item" onclick="openAuth()"><span class="sidebar-icon">💳</span>Deposit</button>
+      <button class="sidebar-item" id="sb-deposit" onclick="openDeposit()"><span class="sidebar-icon">💳</span>Deposit</button>
+      <button class="sidebar-item" id="sb-withdraw" onclick="openWithdraw()" style="display:none"><span class="sidebar-icon">💸</span>Withdraw</button>
       <button class="sidebar-item" onclick="openAuth()"><span class="sidebar-icon">⚙️</span>Settings</button>
     </div>
   </aside>
@@ -681,6 +682,7 @@ textarea.field-input { resize: none; }
         <button class="sort-btn active" onclick="sortMarkets('volume',this)">Top Volume</button>
         <button class="sort-btn" onclick="sortMarkets('newest',this)">Newest</button>
         <button class="sort-btn" onclick="sortMarkets('closing',this)">Closing Soon</button>
+        <button class="btn btn-primary" id="btn-post-market" style="display:none" onclick="openCreateMarket()">+ Post Market</button>
       </div>
     </div>
 
@@ -840,6 +842,98 @@ textarea.field-input { resize: none; }
     <button class="btn btn-primary btn-full" onclick="submitMarket()">Post Market →</button>
   </div>
 </div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- DEPOSIT MODAL -->
+<div class="overlay" id="deposit-modal">
+  <div class="modal" style="max-width:400px">
+    <button class="modal-close" onclick="closeModal('deposit-modal')">✕</button>
+    <div class="modal-title">Deposit via M-Pesa</div>
+    <div class="modal-sub">An STK push will be sent to your M-Pesa number. Enter your PIN to complete.</div>
+
+    <div class="field">
+      <div class="field-label">M-Pesa Number</div>
+      <div class="input-prefix-wrap">
+        <span class="input-prefix">+254</span>
+        <input type="tel" id="dep-phone" placeholder="7XX XXX XXX" maxlength="9">
+      </div>
+      <div style="font-size:0.72rem;color:var(--muted);margin-top:6px">Must be the number registered to your account</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Amount (KSh)</div>
+      <div class="input-prefix-wrap">
+        <span class="input-prefix">KSh</span>
+        <input type="number" id="dep-amount" placeholder="Min 100" min="100">
+      </div>
+      <div class="preset-row">
+        <button class="preset" onclick="setDepAmount(100)">100</button>
+        <button class="preset" onclick="setDepAmount(500)">500</button>
+        <button class="preset" onclick="setDepAmount(1000)">1K</button>
+        <button class="preset" onclick="setDepAmount(5000)">5K</button>
+        <button class="preset" onclick="setDepAmount(10000)">10K</button>
+      </div>
+    </div>
+
+    <div class="payout-box" id="dep-summary" style="display:none">
+      <span class="payout-label">You will receive</span>
+      <span class="payout-val" id="dep-summary-val">KSh 0</span>
+    </div>
+
+    <div id="dep-status" style="display:none;text-align:center;padding:20px 0">
+      <div style="font-size:2rem;margin-bottom:8px">📱</div>
+      <div style="font-weight:600;color:var(--text);margin-bottom:4px">Check your phone</div>
+      <div style="font-size:0.82rem;color:var(--muted)">Enter your M-Pesa PIN to complete the deposit</div>
+      <div style="margin-top:16px">
+        <button class="btn btn-ghost" style="font-size:0.8rem" onclick="checkDepositStatus()">Check Status</button>
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-full" id="dep-btn" onclick="initiateDeposit()">Send STK Push →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- WITHDRAW MODAL -->
+<div class="overlay" id="withdraw-modal">
+  <div class="modal" style="max-width:400px">
+    <button class="modal-close" onclick="closeModal('withdraw-modal')">✕</button>
+    <div class="modal-title">Withdraw via M-Pesa</div>
+    <div class="modal-sub">Funds sent directly to your registered M-Pesa number.</div>
+
+    <div class="payout-box">
+      <span class="payout-label">Available Balance</span>
+      <span class="payout-val" id="withdraw-balance">KSh 0</span>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Amount (KSh)</div>
+      <div class="input-prefix-wrap">
+        <span class="input-prefix">KSh</span>
+        <input type="number" id="with-amount" placeholder="Min 200" min="200">
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Send To</div>
+      <div class="input-prefix-wrap">
+        <span class="input-prefix">+254</span>
+        <input type="tel" id="with-phone" placeholder="7XX XXX XXX" maxlength="9">
+      </div>
+      <div style="font-size:0.72rem;color:var(--muted);margin-top:6px">1% fee (min KSh 20) deducted automatically</div>
+    </div>
+
+    <div class="payout-box">
+      <span class="payout-label">You will receive</span>
+      <span class="payout-val" id="with-net">KSh 0</span>
+    </div>
+
+    <button class="btn btn-primary btn-full" onclick="initiateWithdrawal()">Withdraw →</button>
+  </div>
+</div>
+
+<!-- FLOATING POST BUTTON (mobile tipsters) -->
+<button id="fab-post" onclick="openCreateMarket()" style="display:none;position:fixed;bottom:28px;right:20px;z-index:250;background:var(--green);color:#000;border:none;border-radius:50px;padding:14px 22px;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;box-shadow:0 8px 32px rgba(0,192,118,0.4)">+ Post Market</button>
 
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
@@ -1078,9 +1172,12 @@ function updateNavForUser() {
   document.getElementById('btn-login').style.display    = 'none';
   document.getElementById('btn-register').style.display = 'none';
   document.getElementById('nav-balance').style.display  = '';
-  document.getElementById('nav-balance').textContent    = 'KSh ' + Number(currentUser.balance_ksh).toLocaleString();
+  document.getElementById('nav-balance').textContent    = 'KSh ' + Number(currentUser.balance_ksh).toLocaleString() + ' 💳';
+  document.getElementById('sb-withdraw').style.display  = '';
   if (currentUser.role === 'tipster' || currentUser.role === 'admin') {
     document.getElementById('btn-new-market').style.display = '';
+    document.getElementById('btn-post-market').style.display = '';
+    document.getElementById('fab-post').style.display = '';
   }
 }
 
@@ -1252,6 +1349,209 @@ sb.channel('markets-realtime')
     loadMarkets(); loadStats();
   })
   .subscribe();
+
+// ── INTASEND PAYMENT INTEGRATION ─────────────────────────────────────────────
+const INTASEND_PUB  = 'ISPubKey_live_0e2c5159-9789-46b8-b774-91c5b231dba0';
+const INTASEND_SEC  = 'ISSecretKey_live_765412fd-a806-45e1-9a11-223f6f7caa34';
+const INTASEND_BASE = 'https://payment.intasend.com/api/v1';
+
+let currentInvoiceId = null;
+
+// ── DEPOSIT ───────────────────────────────────────────────────────────────────
+function openDeposit() {
+  if (!currentUser) { openAuth(); showToast('Sign in to deposit', 'info'); return; }
+  // Pre-fill phone from registered mobile
+  const mobile = currentUser.mobile.replace('+254','').replace(/\s/g,'');
+  document.getElementById('dep-phone').value = mobile;
+  document.getElementById('dep-amount').value = '';
+  document.getElementById('dep-status').style.display = 'none';
+  document.getElementById('dep-btn').style.display = '';
+  document.getElementById('dep-summary').style.display = 'none';
+  document.getElementById('deposit-modal').classList.add('open');
+}
+
+function setDepAmount(v) {
+  document.getElementById('dep-amount').value = v;
+  document.getElementById('dep-summary').style.display = '';
+  document.getElementById('dep-summary-val').textContent = 'KSh ' + v.toLocaleString();
+}
+
+async function initiateDeposit() {
+  const phone  = '254' + document.getElementById('dep-phone').value.trim().replace(/^0/,'');
+  const amount = parseInt(document.getElementById('dep-amount').value);
+
+  if (!phone || phone.length < 12) { showToast('Enter a valid M-Pesa number', 'error'); return; }
+  if (!amount || amount < 100)      { showToast('Minimum deposit is KSh 100', 'error'); return; }
+
+  const btn = document.getElementById('dep-btn');
+  btn.textContent = 'Sending STK Push...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch(`${INTASEND_BASE}/payment/mpesa-stk-push/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${INTASEND_SEC}`,
+        'X-IntaSend-Public-Key': INTASEND_PUB,
+      },
+      body: JSON.stringify({
+        first_name:   currentUser.full_name.split(' ')[0],
+        last_name:    currentUser.full_name.split(' ')[1] || '',
+        email:        `${currentUser.mobile.replace('+','').replace(/\s/g,'')}@poly-soko.com`,
+        phone_number: phone,
+        amount:       amount,
+        currency:     'KES',
+        api_ref:      `DEP-${currentUser.id.substring(0,8)}-${Date.now()}`,
+        narrative:    'Poly-Soko Account Top-up',
+      }),
+    });
+
+    const data = await res.json();
+
+    if (data.invoice && data.invoice.invoice_id) {
+      currentInvoiceId = data.invoice.invoice_id;
+      // Show waiting state
+      document.getElementById('dep-status').style.display = '';
+      btn.style.display = 'none';
+      showToast('STK push sent! Check your phone 📱', 'info');
+      // Auto-check after 15 seconds
+      setTimeout(() => checkDepositStatus(), 15000);
+    } else {
+      throw new Error(data.detail || data.message || 'STK push failed');
+    }
+  } catch (err) {
+    showToast('Deposit failed: ' + err.message, 'error');
+    btn.textContent = 'Send STK Push →';
+    btn.disabled = false;
+  }
+}
+
+async function checkDepositStatus() {
+  if (!currentInvoiceId) return;
+  try {
+    const res = await fetch(`${INTASEND_BASE}/payment/invoices/${currentInvoiceId}/`, {
+      headers: {
+        'Authorization': `Bearer ${INTASEND_SEC}`,
+        'X-IntaSend-Public-Key': INTASEND_PUB,
+      },
+    });
+    const data = await res.json();
+    const state = data.invoice?.state || data.state;
+
+    if (state === 'COMPLETE') {
+      const amount = data.invoice?.net_amount || data.net_amount;
+      // Credit user balance in Supabase
+      const newBal = Number(currentUser.balance_ksh) + Number(amount);
+      await sb.from('users').update({ balance_ksh: newBal }).eq('id', currentUser.id);
+      await sb.from('transactions').insert({
+        user_id: currentUser.id,
+        type: 'deposit',
+        amount_ksh: amount,
+        ref_id: currentInvoiceId,
+        balance_after: newBal,
+      });
+      currentUser.balance_ksh = newBal;
+      document.getElementById('nav-balance').textContent = 'KSh ' + newBal.toLocaleString() + ' 💳';
+      closeModal('deposit-modal');
+      showToast(`KSh ${Number(amount).toLocaleString()} deposited successfully! 🎉`);
+      currentInvoiceId = null;
+    } else if (state === 'FAILED' || state === 'CANCELLED') {
+      showToast('Payment was ' + state.toLowerCase() + '. Try again.', 'error');
+      document.getElementById('dep-status').style.display = 'none';
+      const btn = document.getElementById('dep-btn');
+      btn.textContent = 'Send STK Push →';
+      btn.disabled = false;
+      btn.style.display = '';
+      currentInvoiceId = null;
+    } else {
+      showToast('Still waiting for payment confirmation...', 'info');
+    }
+  } catch (err) {
+    showToast('Could not check status — try again', 'error');
+  }
+}
+
+// ── WITHDRAWAL ────────────────────────────────────────────────────────────────
+function openWithdraw() {
+  if (!currentUser) { openAuth(); return; }
+  const mobile = currentUser.mobile.replace('+254','').replace(/\s/g,'');
+  document.getElementById('with-phone').value  = mobile;
+  document.getElementById('with-amount').value = '';
+  document.getElementById('withdraw-balance').textContent = 'KSh ' + Number(currentUser.balance_ksh).toLocaleString();
+  document.getElementById('with-net').textContent = 'KSh 0';
+  document.getElementById('withdraw-modal').classList.add('open');
+}
+
+document.addEventListener('input', function(e) {
+  if (e.target.id === 'with-amount') {
+    const amt   = parseInt(e.target.value) || 0;
+    const fee   = Math.max(20, Math.round(amt * 0.01));
+    const net   = Math.max(0, amt - fee);
+    document.getElementById('with-net').textContent = `KSh ${net.toLocaleString()} (fee: KSh ${fee})`;
+  }
+});
+
+async function initiateWithdrawal() {
+  const phone  = '254' + document.getElementById('with-phone').value.trim().replace(/^0/,'');
+  const amount = parseInt(document.getElementById('with-amount').value);
+  const fee    = Math.max(20, Math.round(amount * 0.01));
+  const net    = amount - fee;
+
+  if (!amount || amount < 200)                      { showToast('Minimum withdrawal is KSh 200', 'error'); return; }
+  if (amount > currentUser.balance_ksh)             { showToast('Insufficient balance', 'error'); return; }
+  if (!phone || phone.length < 12)                  { showToast('Enter a valid M-Pesa number', 'error'); return; }
+
+  try {
+    const res = await fetch(`${INTASEND_BASE}/send-money/mpesa-b2c/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${INTASEND_SEC}`,
+        'X-IntaSend-Public-Key': INTASEND_PUB,
+      },
+      body: JSON.stringify({
+        currency:     'KES',
+        transactions: [{
+          name:    currentUser.full_name,
+          account: phone,
+          amount:  net,
+        }],
+        requires_approval: 'NO',
+      }),
+    });
+
+    const data = await res.json();
+
+    if (data.status === 'Preview' || data.status === 'Sending' || data.tracking_id) {
+      // Deduct from balance
+      const newBal = Number(currentUser.balance_ksh) - amount;
+      await sb.from('users').update({ balance_ksh: newBal }).eq('id', currentUser.id);
+      await sb.from('transactions').insert({
+        user_id: currentUser.id,
+        type: 'withdrawal',
+        amount_ksh: -amount,
+        ref_id: data.tracking_id || 'pending',
+        balance_after: newBal,
+      });
+      currentUser.balance_ksh = newBal;
+      document.getElementById('nav-balance').textContent = 'KSh ' + newBal.toLocaleString() + ' 💳';
+      closeModal('withdraw-modal');
+      showToast(`KSh ${net.toLocaleString()} sent to your M-Pesa! 💸`);
+    } else {
+      throw new Error(data.detail || data.message || 'Withdrawal failed');
+    }
+  } catch (err) {
+    showToast('Withdrawal failed: ' + err.message, 'error');
+  }
+}
+
+// ── UPDATE NAV BALANCE DISPLAY ────────────────────────────────────────────────
+function refreshBalanceDisplay() {
+  if (currentUser) {
+    document.getElementById('nav-balance').textContent = 'KSh ' + Number(currentUser.balance_ksh).toLocaleString() + ' 💳';
+  }
+}
 
 // ── START ────────────────────────────────────────────────────────────────────
 init();
