@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Poly-Soko — Prediction Markets</title>
+<title>Poly-Soko -- Prediction Markets</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
@@ -284,34 +284,7 @@ nav {
   border-radius: 10px;
   background: var(--surface2);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem;
-  flex-shrink: 0;
-  border: 1px solid var(--border);
-}
-
-.card-meta { flex: 1; min-width: 0; }
-
-.card-category {
-  font-size: 0.7rem;
-  color: var(--muted);
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.card-question {
-  font-size: 0.97rem;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.35;
-}
-
-/* ── OUTCOMES ── */
-.card-outcomes {
-  display: flex; gap: 8px;
-  margin-bottom: 14px;
-}
+< truncated lines 287-314 >
 
 .outcome-pill {
   flex: 1;
@@ -597,9 +570,7 @@ textarea.field-input { resize: none; }
 .toast.show { transform: translateY(0); opacity:1; }
 .toast.success { background: var(--green); color: #000; }
 .toast.error   { background: var(--red);   color: #fff; }
-.toast.info    { background: var(--surface2); color: var(--text); border: 1px solid var(--border2); }
-
-/* ── EMPTY STATE ── */
+.toast.info    { background: var(--surface2); color: var(--text); border: 1px solid var(--border2); }/* ── EMPTY STATE ── */
 .empty {
   text-align: center; padding: 60px 20px;
   color: var(--muted);
@@ -607,6 +578,60 @@ textarea.field-input { resize: none; }
 .empty-icon { font-size: 2.5rem; margin-bottom: 12px; }
 .empty-title { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
 .empty-sub { font-size: 0.82rem; }
+
+/* ── PROFILE MODAL ── */
+.profile-header {
+  display: flex; align-items: center; gap: 16px;
+  padding: 20px 0; border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.profile-avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--surface2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; border: 2px solid var(--border2); flex-shrink: 0;
+}
+.profile-name { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+.profile-role { font-size: 0.78rem; color: var(--muted); margin-top: 2px; text-transform: capitalize; }
+.profile-balance { font-family: 'DM Mono', monospace; font-size: 0.88rem; color: var(--green); margin-top: 4px; }
+
+.profile-stats {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px; margin-bottom: 20px;
+}
+.pstat {
+  background: var(--surface2); border-radius: var(--radius-sm);
+  padding: 12px; text-align: center; border: 1px solid var(--border);
+}
+.pstat-val { font-family: 'DM Mono', monospace; font-size: 1rem; font-weight: 600; color: var(--text); }
+.pstat-label { font-size: 0.68rem; color: var(--muted); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.bet-history-list { display: flex; flex-direction: column; gap: 8px; max-height: 340px; overflow-y: auto; }
+.bet-history-item {
+  background: var(--surface2); border-radius: var(--radius-sm);
+  padding: 12px 14px; border: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+}
+.bet-history-q { font-size: 0.82rem; color: var(--text); font-weight: 500; flex: 1; line-height: 1.3; }
+.bet-history-meta { font-size: 0.72rem; color: var(--muted); margin-top: 3px; }
+.bet-history-right { text-align: right; flex-shrink: 0; }
+.bet-choice-badge { font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-bottom: 4px; display: inline-block; }
+.bet-choice-badge.yes { background: var(--green-dim); color: var(--green); }
+.bet-choice-badge.no  { background: var(--red-dim);   color: var(--red); }
+.bet-stake { font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--text); }
+.bet-status-won  { color: var(--green); font-size: 0.72rem; font-weight: 600; }
+.bet-status-lost { color: var(--red);   font-size: 0.72rem; font-weight: 600; }
+.bet-status-open { color: var(--gold);  font-size: 0.72rem; font-weight: 600; }
+
+/* ── LOGOUT LINK ── */
+.logout-link {
+  font-size: 0.82rem; color: var(--red); cursor: pointer;
+  background: none; border: none; font-family: 'DM Sans', sans-serif;
+  font-weight: 500; padding: 9px 10px; border-radius: var(--radius-sm);
+  width: 100%; text-align: left; display: flex; align-items: center; gap: 10px;
+  transition: all 0.15s;
+}
+.logout-link:hover { background: var(--red-dim); }
 
 /* ── LOADING ── */
 .skeleton {
@@ -644,6 +669,8 @@ textarea.field-input { resize: none; }
   </div>
   <div class="nav-right">
     <span class="nav-balance" id="nav-balance" style="display:none;cursor:pointer" onclick="openDeposit()">KSh 0 💳</span>
+    <button class="btn btn-ghost" id="btn-withdraw-nav" style="display:none;font-size:0.78rem;padding:5px 12px" onclick="openWithdraw()">Withdraw 💸</button>
+    <button class="btn btn-ghost" id="btn-profile-nav" style="display:none;font-size:0.78rem;padding:5px 12px" onclick="openProfile()">👤</button>
     <button class="btn btn-ghost" id="btn-login" onclick="openAuth()">Sign In</button>
     <button class="btn btn-primary" id="btn-register" onclick="openAuth('register')">Register</button>
     <button class="btn btn-primary" id="btn-new-market" style="display:none" onclick="openCreateMarket()">+ Market</button>
@@ -657,7 +684,7 @@ textarea.field-input { resize: none; }
   <aside class="sidebar-left">
     <div class="sidebar-section">
       <div class="sidebar-label">Markets</div>
-      <button class="sidebar-item active" onclick="filterTab('all',this)"><span class="sidebar-icon">🔥</span>Trending<span class="sidebar-badge" id="sb-all">—</span></button>
+      <button class="sidebar-item active" onclick="filterTab('all',this)"><span class="sidebar-icon">🔥</span>Trending<span class="sidebar-badge" id="sb-all">--</span></button>
       <button class="sidebar-item" onclick="filterTab('politics',this)"><span class="sidebar-icon">🏛</span>Politics</button>
       <button class="sidebar-item" onclick="filterTab('economy',this)"><span class="sidebar-icon">📈</span>Economy</button>
       <button class="sidebar-item" onclick="filterTab('sports',this)"><span class="sidebar-icon">⚽</span>Sports</button>
@@ -667,10 +694,14 @@ textarea.field-input { resize: none; }
     </div>
     <div class="sidebar-section">
       <div class="sidebar-label">Account</div>
-      <button class="sidebar-item" id="sb-portfolio" onclick="openAuth()" style="display:none"><span class="sidebar-icon">📊</span>Portfolio</button>
+      <button class="sidebar-item" id="sb-portfolio" onclick="openProfile()" style="display:none"><span class="sidebar-icon">👤</span>My Profile</button>
       <button class="sidebar-item" id="sb-deposit" onclick="openDeposit()"><span class="sidebar-icon">💳</span>Deposit</button>
       <button class="sidebar-item" id="sb-withdraw" onclick="openWithdraw()" style="display:none"><span class="sidebar-icon">💸</span>Withdraw</button>
-      <button class="sidebar-item" onclick="openAuth()"><span class="sidebar-icon">⚙️</span>Settings</button>
+      <button class="logout-link" id="sb-logout" onclick="handleLogout()" style="display:none"><span class="sidebar-icon">🚪</span>Logout</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">History</div>
+      <button class="sidebar-item" onclick="filterTab('resolved',this)"><span class="sidebar-icon">✅</span>Resolved Markets</button>
     </div>
   </aside>
 
@@ -689,7 +720,7 @@ textarea.field-input { resize: none; }
     <!-- BETA BANNER -->
     <div class="beta-banner">
       <span class="beta-tag">TRIAL</span>
-      <span class="beta-text">Poly-Soko is currently in trial phase. Markets use demo balances — real money integration coming soon.</span>
+      <span class="beta-text">Poly-Soko is currently in trial phase. Markets use demo balances -- real money integration coming soon.</span>
     </div>
 
     <!-- MARKETS LIST -->
@@ -697,238 +728,13 @@ textarea.field-input { resize: none; }
       <div class="empty"><div class="skeleton" style="height:80px;margin-bottom:8px"></div><div class="skeleton" style="height:80px;margin-bottom:8px"></div><div class="skeleton" style="height:80px"></div></div>
     </div>
   </main>
-
-  <!-- RIGHT SIDEBAR -->
-  <aside class="sidebar-right">
-
-    <div class="widget">
-      <div class="widget-title">Platform Stats</div>
-      <div class="stat-row"><span class="stat-label">Active Markets</span><span class="stat-val green" id="stat-active">—</span></div>
-      <div class="stat-row"><span class="stat-label">Total Volume</span><span class="stat-val gold" id="stat-volume">—</span></div>
-      <div class="stat-row"><span class="stat-label">Total Traders</span><span class="stat-val" id="stat-traders">—</span></div>
-      <div class="stat-row"><span class="stat-label">Resolved Today</span><span class="stat-val" id="stat-resolved">—</span></div>
+< truncated lines 760-1042 >
     </div>
-
-    <div class="widget">
-      <div class="widget-title">Top Tipsters</div>
-      <div id="tipsters-list">
-        <div class="tipster-row"><div class="tipster-avatar">🎯</div><div class="tipster-info"><div class="tipster-name">No tipsters yet</div><div class="tipster-stats">Be the first</div></div></div>
-      </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px">
+      <button class="btn btn-ghost btn-full" onclick="closeModal('profile-modal');openDeposit()">💳 Deposit</button>
+      <button class="btn btn-ghost btn-full" onclick="closeModal('profile-modal');openWithdraw()">💸 Withdraw</button>
     </div>
-
-    <div class="widget">
-      <div class="widget-title">How It Works</div>
-      <div style="font-size:0.8rem;color:var(--muted);line-height:1.7">
-        <div style="margin-bottom:8px">🟢 <strong style="color:var(--text)">Pick YES or NO</strong> on any market question</div>
-        <div style="margin-bottom:8px">💰 <strong style="color:var(--text)">Stake KSh 50+</strong> minimum per bet</div>
-        <div style="margin-bottom:8px">📊 <strong style="color:var(--text)">Odds update live</strong> as more bets come in</div>
-        <div style="margin-bottom:8px">✅ <strong style="color:var(--text)">Win the pool</strong> when the market resolves in your favour</div>
-        <div>🎯 <strong style="color:var(--text)">Become a Tipster</strong> to post your own markets and earn commission</div>
-      </div>
-    </div>
-
-  </aside>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- AUTH MODAL -->
-<div class="overlay" id="auth-modal">
-  <div class="modal" style="max-width:400px">
-    <button class="modal-close" onclick="closeModal('auth-modal')">✕</button>
-    <div class="auth-tabs">
-      <button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Sign In</button>
-      <button class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Register</button>
-    </div>
-    <div id="auth-login">
-      <div class="modal-title">Welcome back</div>
-      <div class="modal-sub">Sign in with your mobile number and PIN</div>
-      <div class="field"><div class="field-label">Mobile Number</div><input class="field-input" id="login-mobile" placeholder="+254 7XX XXX XXX" type="tel"></div>
-      <div class="field"><div class="field-label">4-Digit PIN</div><input class="field-input" id="login-pin" placeholder="••••" type="password" maxlength="4"></div>
-      <button class="btn btn-primary btn-full" onclick="handleLogin()">Sign In →</button>
-    </div>
-    <div id="auth-register" style="display:none">
-      <div class="modal-title">Create account</div>
-      <div class="modal-sub">Register with your mobile number — used for all deposits and withdrawals</div>
-      <div class="field"><div class="field-label">Full Name</div><input class="field-input" id="reg-name" placeholder="Your full name"></div>
-      <div class="field"><div class="field-label">Mobile Number</div><input class="field-input" id="reg-mobile" placeholder="+254 7XX XXX XXX" type="tel"></div>
-      <div class="field"><div class="field-label">4-Digit PIN</div><input class="field-input" id="reg-pin" placeholder="Choose a PIN" type="password" maxlength="4"></div>
-      <div class="field"><div class="field-label">I am a</div>
-        <select class="field-input" id="reg-role">
-          <option value="punter">Punter — I want to bet on markets</option>
-          <option value="tipster">Tipster — I want to post markets and earn commission</option>
-        </select>
-      </div>
-      <button class="btn btn-primary btn-full" onclick="handleRegister()">Create Account →</button>
-      <div style="font-size:0.72rem;color:var(--muted);text-align:center;margin-top:12px">Your mobile number is linked to your account permanently and is the only number you can use to deposit or withdraw.</div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- BET MODAL -->
-<div class="overlay" id="bet-modal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('bet-modal')">✕</button>
-    <div class="modal-title">Place Bet</div>
-    <div class="modal-sub" id="bet-question">—</div>
-    <div class="choice-grid">
-      <button class="choice-btn yes" id="bet-yes" onclick="selectBetChoice('yes')">YES</button>
-      <button class="choice-btn no"  id="bet-no"  onclick="selectBetChoice('no')">NO</button>
-    </div>
-    <div class="field">
-      <div class="field-label">Stake Amount</div>
-      <div class="input-prefix-wrap">
-        <span class="input-prefix">KSh</span>
-        <input type="number" id="bet-stake" value="100" min="50" oninput="updatePayout()">
-      </div>
-      <div class="preset-row">
-        <button class="preset" onclick="setStake(50)">50</button>
-        <button class="preset" onclick="setStake(100)">100</button>
-        <button class="preset" onclick="setStake(500)">500</button>
-        <button class="preset" onclick="setStake(1000)">1K</button>
-        <button class="preset" onclick="setStake(5000)">5K</button>
-      </div>
-    </div>
-    <div class="payout-box">
-      <span class="payout-label">Potential Payout</span>
-      <span class="payout-val" id="payout-display">KSh 190</span>
-    </div>
-    <button class="btn btn-primary btn-full" onclick="confirmBet()">Confirm Bet →</button>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- CREATE MARKET MODAL -->
-<div class="overlay" id="create-modal">
-  <div class="modal" style="max-width:500px">
-    <button class="modal-close" onclick="closeModal('create-modal')">✕</button>
-    <div class="modal-title">Post a Market</div>
-    <div class="modal-sub">Ask a Yes/No question. A KSh 500 bond is held until you resolve it.</div>
-    <div class="field">
-      <div class="field-label">Question <span id="qlen" style="color:var(--muted);font-weight:400">0/120</span></div>
-      <textarea class="field-input" id="mkt-question" rows="3" placeholder="e.g. Will it rain before 6 PM today?" oninput="updateQLen()"></textarea>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div class="field">
-        <div class="field-label">Category</div>
-        <select class="field-input" id="mkt-cat">
-          <option value="politics">🏛 Politics</option>
-          <option value="economy">📈 Economy</option>
-          <option value="weather">🌦 Weather</option>
-          <option value="sports">⚽ Sports</option>
-          <option value="traffic">🚗 Traffic</option>
-          <option value="other">💡 Other</option>
-        </select>
-      </div>
-      <div class="field">
-        <div class="field-label">Closes At</div>
-        <input class="field-input" type="time" id="mkt-closes" value="23:59">
-      </div>
-    </div>
-    <div class="field">
-      <div class="field-label">Opening YES Probability</div>
-      <div class="slider-wrap">
-        <div class="slider-row">
-          <input type="range" id="mkt-prob" min="5" max="95" value="50" oninput="updateProbLabel()">
-          <span class="slider-pct" id="mkt-prob-label">50%</span>
-        </div>
-        <div class="slider-hint"><span>5% YES</span><span>50/50</span><span>95% YES</span></div>
-      </div>
-    </div>
-    <div class="payout-box">
-      <span class="payout-label">Bond Required</span>
-      <span class="payout-val">KSh 500</span>
-    </div>
-    <button class="btn btn-primary btn-full" onclick="submitMarket()">Post Market →</button>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- DEPOSIT MODAL -->
-<div class="overlay" id="deposit-modal">
-  <div class="modal" style="max-width:400px">
-    <button class="modal-close" onclick="closeModal('deposit-modal')">✕</button>
-    <div class="modal-title">Deposit via M-Pesa</div>
-    <div class="modal-sub">An STK push will be sent to your M-Pesa number. Enter your PIN to complete.</div>
-
-    <div class="field">
-      <div class="field-label">M-Pesa Number</div>
-      <div class="input-prefix-wrap">
-        <span class="input-prefix">+254</span>
-        <input type="tel" id="dep-phone" placeholder="7XX XXX XXX" maxlength="9">
-      </div>
-      <div style="font-size:0.72rem;color:var(--muted);margin-top:6px">Must be the number registered to your account</div>
-    </div>
-
-    <div class="field">
-      <div class="field-label">Amount (KSh)</div>
-      <div class="input-prefix-wrap">
-        <span class="input-prefix">KSh</span>
-        <input type="number" id="dep-amount" placeholder="Min 100" min="100">
-      </div>
-      <div class="preset-row">
-        <button class="preset" onclick="setDepAmount(100)">100</button>
-        <button class="preset" onclick="setDepAmount(500)">500</button>
-        <button class="preset" onclick="setDepAmount(1000)">1K</button>
-        <button class="preset" onclick="setDepAmount(5000)">5K</button>
-        <button class="preset" onclick="setDepAmount(10000)">10K</button>
-      </div>
-    </div>
-
-    <div class="payout-box" id="dep-summary" style="display:none">
-      <span class="payout-label">You will receive</span>
-      <span class="payout-val" id="dep-summary-val">KSh 0</span>
-    </div>
-
-    <div id="dep-status" style="display:none;text-align:center;padding:20px 0">
-      <div style="font-size:2rem;margin-bottom:8px">📱</div>
-      <div style="font-weight:600;color:var(--text);margin-bottom:4px">Check your phone</div>
-      <div style="font-size:0.82rem;color:var(--muted)">Enter your M-Pesa PIN to complete the deposit</div>
-      <div style="margin-top:16px">
-        <button class="btn btn-ghost" style="font-size:0.8rem" onclick="checkDepositStatus()">Check Status</button>
-      </div>
-    </div>
-
-    <button class="btn btn-primary btn-full" id="dep-btn" onclick="initiateDeposit()">Send STK Push →</button>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- WITHDRAW MODAL -->
-<div class="overlay" id="withdraw-modal">
-  <div class="modal" style="max-width:400px">
-    <button class="modal-close" onclick="closeModal('withdraw-modal')">✕</button>
-    <div class="modal-title">Withdraw via M-Pesa</div>
-    <div class="modal-sub">Funds sent directly to your registered M-Pesa number.</div>
-
-    <div class="payout-box">
-      <span class="payout-label">Available Balance</span>
-      <span class="payout-val" id="withdraw-balance">KSh 0</span>
-    </div>
-
-    <div class="field">
-      <div class="field-label">Amount (KSh)</div>
-      <div class="input-prefix-wrap">
-        <span class="input-prefix">KSh</span>
-        <input type="number" id="with-amount" placeholder="Min 200" min="200">
-      </div>
-    </div>
-
-    <div class="field">
-      <div class="field-label">Send To</div>
-      <div class="input-prefix-wrap">
-        <span class="input-prefix">+254</span>
-        <input type="tel" id="with-phone" placeholder="7XX XXX XXX" maxlength="9">
-      </div>
-      <div style="font-size:0.72rem;color:var(--muted);margin-top:6px">1% fee (min KSh 20) deducted automatically</div>
-    </div>
-
-    <div class="payout-box">
-      <span class="payout-label">You will receive</span>
-      <span class="payout-val" id="with-net">KSh 0</span>
-    </div>
-
-    <button class="btn btn-primary btn-full" onclick="initiateWithdrawal()">Withdraw →</button>
+    <button class="btn btn-full" style="margin-top:10px;background:var(--red-dim);color:var(--red);border:1px solid rgba(255,77,77,0.3)" onclick="closeModal('profile-modal');handleLogout()">🚪 Logout</button>
   </div>
 </div>
 
@@ -986,7 +792,13 @@ function renderMarkets() {
   let markets = [...allMarkets];
 
   // Filter
-  if (currentFilter !== 'all') markets = markets.filter(m => m.category === currentFilter);
+  if (currentFilter === 'resolved') {
+    markets = markets.filter(m => m.status === 'resolved' || m.resolution);
+  } else if (currentFilter !== 'all') {
+    markets = markets.filter(m => m.category === currentFilter && m.status !== 'resolved');
+  } else {
+    markets = markets.filter(m => m.status !== 'resolved');
+  }
 
   // Sort
   if (currentSort === 'volume')  markets.sort((a,b) => b.total_volume_ksh - a.total_volume_ksh);
@@ -1012,10 +824,13 @@ function renderMarkets() {
     const icon = catIcon[m.category] || '💡';
     const resolvedHTML = m.resolution
       ? `<div class="resolved-stamp stamp-${m.resolution}">Resolved ${m.resolution.toUpperCase()}</div>` : '';
-    const isLocked = m.status === 'resolved' || m.status === 'closed' || m.status === 'voided';
+    const isClosed = diff <= 0;
+    const isLocked = m.status === 'resolved' || m.status === 'closed' || m.status === 'voided' || isClosed;
+    const closedBanner = isClosed && !m.resolution
+      ? `<div class="resolved-stamp" style="background:rgba(107,114,128,0.15);color:#6B7280;border:1px solid rgba(107,114,128,0.3);top:14px;right:14px">CLOSED</div>` : '';
 
-    return `<div class="market-card" style="animation-delay:${i*0.05}s" onclick="${isLocked ? '' : `openBet('${m.id}')`}">
-      ${resolvedHTML}
+    return `<div class="market-card${isLocked ? ' resolved-card' : ''}" style="animation-delay:${i*0.05}s" onclick="${isLocked ? '' : `openBet('${m.id}')`}">
+      ${resolvedHTML}${closedBanner}
       <div class="card-top">
         <div class="card-icon">${icon}</div>
         <div class="card-meta">
@@ -1023,16 +838,31 @@ function renderMarkets() {
           <div class="card-question">${m.question}</div>
         </div>
       </div>
+      ${isLocked ? `
+      <div style="padding:10px 0 6px;display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.82rem">
+        <span style="font-size:1rem">🔒</span>
+        <span>${m.resolution ? 'Market resolved -- no more bets' : 'Market closed -- betting ended'}</span>
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:10px">
+        <div style="flex:1;padding:8px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--border);opacity:0.5;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.78rem;font-weight:600;color:var(--muted)">↑ YES</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.9rem;color:var(--muted)">${yes}¢</span>
+        </div>
+        <div style="flex:1;padding:8px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--border);opacity:0.5;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.78rem;font-weight:600;color:var(--muted)">↓ NO</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.9rem;color:var(--muted)">${no}¢</span>
+        </div>
+      </div>` : `
       <div class="card-outcomes">
-        <div class="outcome-pill yes" onclick="event.stopPropagation();${isLocked?'':` openBetChoice('${m.id}','yes')`}">
+        <div class="outcome-pill yes" onclick="event.stopPropagation(); openBetChoice('${m.id}','yes')">
           <span class="outcome-label yes-label">↑ YES</span>
           <span class="outcome-pct">${yes}¢</span>
         </div>
-        <div class="outcome-pill no" onclick="event.stopPropagation();${isLocked?'':` openBetChoice('${m.id}','no')`}">
+        <div class="outcome-pill no" onclick="event.stopPropagation(); openBetChoice('${m.id}','no')">
           <span class="outcome-label no-label">↓ NO</span>
           <span class="outcome-pct">${no}¢</span>
         </div>
-      </div>
+      </div>`}
       <div class="prob-bar-wrap">
         <div class="prob-bar-track"><div class="prob-bar-fill" style="width:${yes}%"></div></div>
       </div>
@@ -1056,7 +886,7 @@ function formatTime(ms) {
 
 // ── LOAD STATS ──────────────────────────────────────────────────────────────
 async function loadStats() {
-  const { data } = await sb.from('markets').select('status, total_volume_ksh, resolution');
+  const { data } = await sb.from('markets').select('status, total_volume_ksh, resolution');const { data } = await sb.from('markets').select('status, total_volume_ksh, resolution');
   if (!data) return;
   const active   = data.filter(m => m.status === 'active').length;
   const volume   = data.reduce((s,m) => s + Number(m.total_volume_ksh), 0);
@@ -1091,7 +921,7 @@ async function seedDemoMarkets() {
 }
 
 // ── FILTER & SORT ────────────────────────────────────────────────────────────
-const titleMap = { all:'Trending Markets', politics:'Politics', economy:'Economy', weather:'Weather', sports:'Sports', traffic:'Traffic', other:'Other' };
+const titleMap = { all:'Trending Markets', politics:'Politics', economy:'Economy', weather:'Weather', sports:'Sports', traffic:'Traffic', other:'Other', resolved:'✅ Resolved Markets' };
 
 function filterTab(cat, el) {
   currentFilter = cat;
@@ -1117,8 +947,75 @@ function openAuth(tab = 'login') {
 function switchAuthTab(tab) {
   document.getElementById('auth-login').style.display    = tab === 'login'    ? '' : 'none';
   document.getElementById('auth-register').style.display = tab === 'register' ? '' : 'none';
+  document.getElementById('auth-forgot').style.display   = tab === 'forgot'   ? '' : 'none';
+  document.getElementById('auth-reset').style.display    = tab === 'reset'    ? '' : 'none';
   document.getElementById('tab-login').classList.toggle('active',    tab === 'login');
   document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+}
+
+// ── FORGOT PIN ────────────────────────────────────────────────────────────────
+let forgotMobile = null;
+let generatedOTP = null;
+
+async function sendForgotOTP() {
+  const mobile = document.getElementById('forgot-mobile').value.trim().replace(/\s/g,'');
+  if (!mobile) { showToast('Enter your mobile number', 'error'); return; }
+
+  // Check if mobile exists
+  const { data } = await sb.from('users').select('id, full_name').eq('mobile', mobile).maybeSingle();
+  if (!data) { showToast('Mobile number not found', 'error'); return; }
+
+  // Generate 6-digit OTP and store in Supabase otp_verifications
+  generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+  forgotMobile = mobile;
+
+  const expires = new Date(Date.now() + 10 * 60 * 1000).toISOString(); // 10 min
+  await sb.from('otp_verifications').insert({
+    mobile,
+    code_hash: btoa(generatedOTP),
+    purpose: 'reset_pin',
+    expires_at: expires,
+    used: false,
+  });
+
+  // Show OTP in toast (in production this would be an SMS via Africa's Talking)
+  showToast('OTP: ' + generatedOTP + ' (save this!)', 'info');
+  document.getElementById('reset-sub').textContent = `OTP sent to ${mobile}. Valid for 10 minutes.`;
+  switchAuthTab('reset');
+}
+
+async function confirmResetPIN() {
+  const otp  = document.getElementById('reset-otp').value.trim();
+  const pin1 = document.getElementById('reset-pin1').value.trim();
+  const pin2 = document.getElementById('reset-pin2').value.trim();
+
+  if (!otp)  { showToast('Enter the OTP', 'error'); return; }
+  if (!pin1 || pin1.length !== 4 || isNaN(pin1)) { showToast('PIN must be 4 digits', 'error'); return; }
+  if (pin1 !== pin2) { showToast('PINs do not match', 'error'); return; }
+
+  // Verify OTP from Supabase
+  const { data: otpRow } = await sb
+    .from('otp_verifications')
+    .select('*')
+    .eq('mobile', forgotMobile)
+    .eq('purpose', 'reset_pin')
+    .eq('used', false)
+    .order('created_at', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  if (!otpRow) { showToast('OTP expired or invalid. Request a new one.', 'error'); return; }
+  if (new Date(otpRow.expires_at) < new Date()) { showToast('OTP has expired. Request a new one.', 'error'); return; }
+  if (otpRow.code_hash !== btoa(otp)) { showToast('Incorrect OTP', 'error'); return; }
+
+  // Update PIN
+  await sb.from('users').update({ pin_hash: btoa(pin1) }).eq('mobile', forgotMobile);
+  await sb.from('otp_verifications').update({ used: true }).eq('id', otpRow.id);
+
+  showToast('PIN reset successfully! Sign in with your new PIN.', 'success');
+  forgotMobile = null;
+  generatedOTP = null;
+  switchAuthTab('login');
 }
 
 async function handleRegister() {
@@ -1136,7 +1033,7 @@ async function handleRegister() {
 
   const { data, error } = await sb.from('users').insert({
     mobile, full_name: name, role,
-    pin_hash: btoa(pin), // demo only — in production use proper hashing
+    pin_hash: btoa(pin), // demo only -- in production use proper hashing
     balance_ksh: 5000,   // demo starting balance
     is_verified: true,
   }).select().single();
@@ -1158,7 +1055,7 @@ async function handleLogin() {
   const { data, error } = await sb.from('users').select('*').eq('mobile', mobile).maybeSingle();
   if (error || !data) { showToast('Mobile number not found','error'); return; }
   if (data.pin_hash !== btoa(pin)) { showToast('Incorrect PIN','error'); return; }
-  if (data.is_frozen) { showToast('Account is frozen — contact support','error'); return; }
+  if (data.is_frozen) { showToast('Account is frozen -- contact support','error'); return; }
 
   await sb.from('users').update({ last_login: new Date().toISOString() }).eq('id', data.id);
   currentUser = data;
@@ -1168,172 +1065,7 @@ async function handleLogin() {
 }
 
 function updateNavForUser() {
-  if (!currentUser) return;
-  document.getElementById('btn-login').style.display    = 'none';
-  document.getElementById('btn-register').style.display = 'none';
-  document.getElementById('nav-balance').style.display  = '';
-  document.getElementById('nav-balance').textContent    = 'KSh ' + Number(currentUser.balance_ksh).toLocaleString() + ' 💳';
-  document.getElementById('sb-withdraw').style.display  = '';
-  if (currentUser.role === 'tipster' || currentUser.role === 'admin') {
-    document.getElementById('btn-new-market').style.display = '';
-    document.getElementById('btn-post-market').style.display = '';
-    document.getElementById('fab-post').style.display = '';
-  }
-}
-
-// ── BET ──────────────────────────────────────────────────────────────────────
-function openBet(marketId) {
-  if (!currentUser) { openAuth(); showToast('Sign in to place a bet','info'); return; }
-  betMarket = allMarkets.find(m => m.id === marketId);
-  betChoice = null;
-  document.getElementById('bet-question').textContent = betMarket.question;
-  document.getElementById('bet-yes').classList.remove('sel');
-  document.getElementById('bet-no').classList.remove('sel');
-  document.getElementById('bet-stake').value = 100;
-  updatePayout();
-  document.getElementById('bet-modal').classList.add('open');
-}
-
-function openBetChoice(marketId, choice) {
-  openBet(marketId);
-  setTimeout(() => selectBetChoice(choice), 60);
-}
-
-function selectBetChoice(c) {
-  betChoice = c;
-  document.getElementById('bet-yes').classList.toggle('sel', c === 'yes');
-  document.getElementById('bet-no').classList.toggle('sel', c === 'no');
-  updatePayout();
-}
-
-function setStake(v) { document.getElementById('bet-stake').value = v; updatePayout(); }
-
-function updatePayout() {
-  const stake = parseFloat(document.getElementById('bet-stake').value) || 0;
-  let mult = 1.9;
-  if (betMarket && betChoice) {
-    const prob = betChoice === 'yes' ? betMarket.yes_prob_live : (100 - betMarket.yes_prob_live);
-    mult = Math.max(1.05, 95 / prob);
-  }
-  document.getElementById('payout-display').textContent = 'KSh ' + Math.round(stake * mult).toLocaleString();
-}
-
-async function confirmBet() {
-  if (!betChoice) { showToast('Choose YES or NO first','error'); return; }
-  const stake = parseFloat(document.getElementById('bet-stake').value) || 0;
-  if (stake < 50) { showToast('Minimum stake is KSh 50','error'); return; }
-  if (stake > currentUser.balance_ksh) { showToast('Insufficient balance','error'); return; }
-
-  const prob  = betChoice === 'yes' ? betMarket.yes_prob_live : (100 - betMarket.yes_prob_live);
-  const odds  = Math.max(1.05, 95 / prob);
-  const payout = Math.round(stake * odds * 100) / 100;
-
-  // Insert bet
-  const { error: betErr } = await sb.from('bets').insert({
-    user_id: currentUser.id,
-    market_id: betMarket.id,
-    choice: betChoice,
-    stake_ksh: stake,
-    odds_at_bet: odds,
-    potential_payout: payout,
-    status: 'open',
-  });
-  if (betErr) { showToast('Bet failed: ' + betErr.message, 'error'); return; }
-
-  // Deduct from balance
-  const newBalance = currentUser.balance_ksh - stake;
-  await sb.from('users').update({ balance_ksh: newBalance }).eq('id', currentUser.id);
-  await sb.from('transactions').insert({
-    user_id: currentUser.id, type: 'bet',
-    amount_ksh: -stake,
-    ref_id: betMarket.id,
-    market_id: betMarket.id,
-    balance_after: newBalance,
-  });
-
-  // Update market volume and live odds
-  const newVolume = Number(betMarket.total_volume_ksh) + stake;
-  // Simple AMM: nudge odds towards the chosen side
-  let newProb = betMarket.yes_prob_live;
-  const nudge = Math.min(3, stake / 1000);
-  if (betChoice === 'yes') newProb = Math.min(95, newProb + nudge);
-  else                     newProb = Math.max(5, newProb - nudge);
-
-  await sb.from('markets').update({ total_volume_ksh: newVolume, yes_prob_live: newProb }).eq('id', betMarket.id);
-
-  currentUser.balance_ksh = newBalance;
-  document.getElementById('nav-balance').textContent = 'KSh ' + newBalance.toLocaleString();
-  closeModal('bet-modal');
-  await loadMarkets();
-  await loadStats();
-  showToast(`Bet placed! KSh ${stake} on ${betChoice.toUpperCase()} 🎯`);
-}
-
-// ── CREATE MARKET ─────────────────────────────────────────────────────────────
-function openCreateMarket() {
-  if (!currentUser) { openAuth(); return; }
-  document.getElementById('create-modal').classList.add('open');
-}
-
-function updateQLen() {
-  const v = document.getElementById('mkt-question').value;
-  document.getElementById('qlen').textContent = v.length + '/120';
-  if (v.length > 120) document.getElementById('mkt-question').value = v.substring(0,120);
-}
-
-function updateProbLabel() {
-  document.getElementById('mkt-prob-label').textContent = document.getElementById('mkt-prob').value + '%';
-}
-
-async function submitMarket() {
-  const q       = document.getElementById('mkt-question').value.trim();
-  const cat     = document.getElementById('mkt-cat').value;
-  const closesT = document.getElementById('mkt-closes').value;
-  const prob    = parseInt(document.getElementById('mkt-prob').value);
-
-  if (!q || q.length < 10) { showToast('Write a proper question (10+ chars)','error'); return; }
-  if (currentUser.balance_ksh < 500) { showToast('You need KSh 500 bond to post a market','error'); return; }
-
-  const today = new Date();
-  const [h, m] = closesT.split(':');
-  today.setHours(parseInt(h), parseInt(m), 0, 0);
-  const closesAt  = today.toISOString();
-  const resolvesBy = new Date(today.getTime() + 7200000).toISOString();
-
-  const { error } = await sb.from('markets').insert({
-    tipster_id: currentUser.id,
-    question: q, category: cat,
-    yes_prob_open: prob, yes_prob_live: prob,
-    status: 'active',
-    closes_at: closesAt,
-    resolves_by: resolvesBy,
-    bond_held_ksh: 500,
-    total_volume_ksh: 0,
-    commission_pct: 3,
-    tipster_cut_pct: 2,
-  });
-
-  if (error) { showToast('Failed to create market: ' + error.message, 'error'); return; }
-
-  // Deduct bond
-  const newBal = currentUser.balance_ksh - 500;
-  await sb.from('users').update({ balance_ksh: newBal, tipster_bond_ksh: (currentUser.tipster_bond_ksh||0) + 500 }).eq('id', currentUser.id);
-  await sb.from('transactions').insert({ user_id: currentUser.id, type:'bond', amount_ksh:-500, balance_after:newBal });
-  currentUser.balance_ksh = newBal;
-  document.getElementById('nav-balance').textContent = 'KSh ' + newBal.toLocaleString();
-
-  closeModal('create-modal');
-  await loadMarkets();
-  await loadStats();
-  showToast('Market posted! 🎯 KSh 500 bond held.');
-}
-
-// ── UTILS ────────────────────────────────────────────────────────────────────
-function closeModal(id) { document.getElementById(id).classList.remove('open'); }
-
-function showToast(msg, type = 'success') {
-  const t = document.getElementById('toast');
-  t.textContent = (type === 'success' ? '✓ ' : type === 'error' ? '✕ ' : 'ℹ ') + msg;
+< truncated lines 1379-1614 >
   t.className = `toast ${type} show`;
   setTimeout(() => t.classList.remove('show'), 3500);
 }
@@ -1446,7 +1178,7 @@ async function checkDepositStatus() {
       showToast('Still waiting... tap again in a moment', 'info');
     }
   } catch (err) {
-    showToast('Could not check status — try again', 'error');
+    showToast('Could not check status -- try again', 'error');
   }
 }
 
