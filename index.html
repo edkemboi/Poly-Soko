@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -25,225 +26,225 @@
   --radius-sm: 8px;
 }
 
-* { margin:0; padding:0; box-sizing:border-box; }
+- { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  min-height: 100vh;
-  line-height: 1.5;
+background: var(–bg);
+color: var(–text);
+font-family: ‘DM Sans’, sans-serif;
+font-size: 14px;
+min-height: 100vh;
+line-height: 1.5;
 }
 
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: var(–surface2); border-radius: 2px; }
 
 /* ── NAVBAR ── */
 nav {
-  position: fixed; top:0; left:0; right:0; z-index:200;
-  height: 60px;
-  background: rgba(13,15,18,0.92);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  display: flex; align-items: center;
-  padding: 0 24px;
-  gap: 16px;
+position: fixed; top:0; left:0; right:0; z-index:200;
+height: 60px;
+background: rgba(13,15,18,0.92);
+backdrop-filter: blur(20px);
+border-bottom: 1px solid var(–border);
+display: flex; align-items: center;
+padding: 0 24px;
+gap: 16px;
 }
 
 .nav-logo {
-  font-family: 'Fraunces', serif;
-  font-size: 1.3rem;
-  color: var(--text);
-  letter-spacing: -0.5px;
-  display: flex; align-items: center; gap: 8px;
-  text-decoration: none;
-  flex-shrink: 0;
+font-family: ‘Fraunces’, serif;
+font-size: 1.3rem;
+color: var(–text);
+letter-spacing: -0.5px;
+display: flex; align-items: center; gap: 8px;
+text-decoration: none;
+flex-shrink: 0;
 }
 
 .logo-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--green);
-  animation: pulse 2s infinite;
+width: 8px; height: 8px; border-radius: 50%;
+background: var(–green);
+animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  0%,100% { box-shadow: 0 0 0 0 rgba(0,192,118,0.4); }
-  50% { box-shadow: 0 0 0 6px rgba(0,192,118,0); }
+0%,100% { box-shadow: 0 0 0 0 rgba(0,192,118,0.4); }
+50% { box-shadow: 0 0 0 6px rgba(0,192,118,0); }
 }
 
 .nav-tabs {
-  display: flex; gap: 2px;
-  overflow-x: auto; flex:1;
-  scrollbar-width: none;
+display: flex; gap: 2px;
+overflow-x: auto; flex:1;
+scrollbar-width: none;
 }
 .nav-tabs::-webkit-scrollbar { display:none; }
 
 .nav-tab {
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--muted);
-  cursor: pointer;
-  border: none; background: transparent;
-  white-space: nowrap;
-  transition: all 0.15s;
-  font-family: 'DM Sans', sans-serif;
+padding: 6px 14px;
+border-radius: 20px;
+font-size: 0.82rem;
+font-weight: 500;
+color: var(–muted);
+cursor: pointer;
+border: none; background: transparent;
+white-space: nowrap;
+transition: all 0.15s;
+font-family: ‘DM Sans’, sans-serif;
 }
-.nav-tab:hover { color: var(--text); background: var(--surface2); }
-.nav-tab.active { color: var(--text); background: var(--surface2); }
+.nav-tab:hover { color: var(–text); background: var(–surface2); }
+.nav-tab.active { color: var(–text); background: var(–surface2); }
 
 .nav-right {
-  display: flex; align-items: center; gap: 10px;
-  flex-shrink: 0;
+display: flex; align-items: center; gap: 10px;
+flex-shrink: 0;
 }
 
 .nav-balance {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.82rem;
-  color: var(--green);
-  background: var(--green-dim);
-  padding: 5px 12px;
-  border-radius: 20px;
-  border: 1px solid rgba(0,192,118,0.2);
+font-family: ‘DM Mono’, monospace;
+font-size: 0.82rem;
+color: var(–green);
+background: var(–green-dim);
+padding: 5px 12px;
+border-radius: 20px;
+border: 1px solid rgba(0,192,118,0.2);
 }
 
 .btn {
-  padding: 7px 16px;
-  border-radius: 20px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-  transition: all 0.15s;
-  font-family: 'DM Sans', sans-serif;
-  letter-spacing: 0.2px;
+padding: 7px 16px;
+border-radius: 20px;
+font-size: 0.82rem;
+font-weight: 600;
+cursor: pointer;
+border: none;
+transition: all 0.15s;
+font-family: ‘DM Sans’, sans-serif;
+letter-spacing: 0.2px;
 }
-.btn-primary { background: var(--green); color: #000; }
+.btn-primary { background: var(–green); color: #000; }
 .btn-primary:hover { background: #00d984; transform: scale(1.02); }
-.btn-ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border2); }
-.btn-ghost:hover { background: var(--surface); border-color: var(--border2); }
+.btn-ghost { background: var(–surface2); color: var(–text); border: 1px solid var(–border2); }
+.btn-ghost:hover { background: var(–surface); border-color: var(–border2); }
 
 /* ── LAYOUT ── */
 .layout {
-  display: grid;
-  grid-template-columns: 220px 1fr 300px;
-  gap: 0;
-  padding-top: 60px;
-  min-height: 100vh;
-  max-width: 1400px;
-  margin: 0 auto;
+display: grid;
+grid-template-columns: 220px 1fr 300px;
+gap: 0;
+padding-top: 60px;
+min-height: 100vh;
+max-width: 1400px;
+margin: 0 auto;
 }
 
 /* ── LEFT SIDEBAR ── */
 .sidebar-left {
-  padding: 24px 16px;
-  border-right: 1px solid var(--border);
-  position: sticky; top: 60px;
-  height: calc(100vh - 60px);
-  overflow-y: auto;
+padding: 24px 16px;
+border-right: 1px solid var(–border);
+position: sticky; top: 60px;
+height: calc(100vh - 60px);
+overflow-y: auto;
 }
 
 .sidebar-section { margin-bottom: 28px; }
 
 .sidebar-label {
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 0 8px;
-  margin-bottom: 8px;
+font-size: 0.7rem;
+font-weight: 600;
+color: var(–muted);
+letter-spacing: 1.5px;
+text-transform: uppercase;
+padding: 0 8px;
+margin-bottom: 8px;
 }
 
 .sidebar-item {
-  display: flex; align-items: center; gap: 10px;
-  padding: 9px 10px;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 500;
-  transition: all 0.15s;
-  border: none; background: transparent;
-  width: 100%;
-  text-align: left;
+display: flex; align-items: center; gap: 10px;
+padding: 9px 10px;
+border-radius: var(–radius-sm);
+cursor: pointer;
+color: var(–muted);
+font-size: 0.88rem;
+font-weight: 500;
+transition: all 0.15s;
+border: none; background: transparent;
+width: 100%;
+text-align: left;
 }
 .sidebar-item:hover, .sidebar-item.active {
-  background: var(--surface2);
-  color: var(--text);
+background: var(–surface2);
+color: var(–text);
 }
-.sidebar-item.active { color: var(--green); }
+.sidebar-item.active { color: var(–green); }
 
 .sidebar-icon { font-size: 1rem; width: 20px; text-align: center; }
 
 .sidebar-badge {
-  margin-left: auto;
-  background: var(--surface2);
-  color: var(--muted);
-  font-size: 0.7rem;
-  padding: 2px 7px;
-  border-radius: 10px;
-  font-family: 'DM Mono', monospace;
+margin-left: auto;
+background: var(–surface2);
+color: var(–muted);
+font-size: 0.7rem;
+padding: 2px 7px;
+border-radius: 10px;
+font-family: ‘DM Mono’, monospace;
 }
 
 /* ── MAIN FEED ── */
 .main-feed { padding: 20px 24px; }
 
 .feed-header {
-  display: flex; justify-content: space-between;
-  align-items: center; margin-bottom: 20px;
-  gap: 16px; flex-wrap: wrap;
+display: flex; justify-content: space-between;
+align-items: center; margin-bottom: 20px;
+gap: 16px; flex-wrap: wrap;
 }
 
 .feed-title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text);
+font-family: ‘Fraunces’, serif;
+font-size: 1.5rem;
+font-weight: 700;
+color: var(–text);
 }
 
 .feed-controls { display: flex; gap: 8px; align-items: center; }
 
 .sort-btn {
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.78rem;
-  font-weight: 500;
-  cursor: pointer;
-  border: 1px solid var(--border2);
-  background: transparent;
-  color: var(--muted);
-  transition: all 0.15s;
-  font-family: 'DM Sans', sans-serif;
+padding: 6px 14px;
+border-radius: 20px;
+font-size: 0.78rem;
+font-weight: 500;
+cursor: pointer;
+border: 1px solid var(–border2);
+background: transparent;
+color: var(–muted);
+transition: all 0.15s;
+font-family: ‘DM Sans’, sans-serif;
 }
 .sort-btn:hover, .sort-btn.active {
-  background: var(--surface2);
-  color: var(--text);
-  border-color: var(--border2);
+background: var(–surface2);
+color: var(–text);
+border-color: var(–border2);
 }
 
 /* ── BETA BANNER ── */
 .beta-banner {
-  background: linear-gradient(135deg, rgba(245,200,66,0.1), rgba(78,158,255,0.08));
-  border: 1px solid rgba(245,200,66,0.25);
-  border-radius: var(--radius);
-  padding: 12px 16px;
-  margin-bottom: 20px;
-  display: flex; align-items: center; gap: 12px;
+background: linear-gradient(135deg, rgba(245,200,66,0.1), rgba(78,158,255,0.08));
+border: 1px solid rgba(245,200,66,0.25);
+border-radius: var(–radius);
+padding: 12px 16px;
+margin-bottom: 20px;
+display: flex; align-items: center; gap: 12px;
 }
 .beta-tag {
-  background: var(--gold);
-  color: #000;
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 4px;
-  letter-spacing: 1px;
-  flex-shrink: 0;
+background: var(–gold);
+color: #000;
+font-size: 0.65rem;
+font-weight: 700;
+padding: 3px 8px;
+border-radius: 4px;
+letter-spacing: 1px;
+flex-shrink: 0;
 }
 .beta-text { font-size: 0.82rem; color: rgba(240,242,245,0.7); }
 
@@ -251,386 +252,442 @@ nav {
 .markets-list { display: flex; flex-direction: column; gap: 2px; }
 
 .market-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px 20px;
-  cursor: pointer;
-  transition: all 0.18s;
-  animation: fadeUp 0.4s ease both;
-  position: relative;
-  overflow: hidden;
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: var(–radius);
+padding: 18px 20px;
+cursor: pointer;
+transition: all 0.18s;
+animation: fadeUp 0.4s ease both;
+position: relative;
+overflow: hidden;
 }
 
 @keyframes fadeUp {
-  from { opacity:0; transform: translateY(12px); }
-  to   { opacity:1; transform: translateY(0); }
+from { opacity:0; transform: translateY(12px); }
+to   { opacity:1; transform: translateY(0); }
 }
 
 .market-card:hover {
-  border-color: var(--border2);
-  background: var(--surface2);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+border-color: var(–border2);
+background: var(–surface2);
+transform: translateY(-1px);
+box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 
 .card-top {
-  display: flex; gap: 14px; align-items: flex-start;
-  margin-bottom: 14px;
+display: flex; gap: 14px; align-items: flex-start;
+margin-bottom: 14px;
 }
 
 .card-icon {
-  width: 44px; height: 44px;
-  border-radius: 10px;
-  background: var(--surface2);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem;
-  flex-shrink: 0;
-  border: 1px solid var(--border);
+width: 44px; height: 44px;
+border-radius: 10px;
+background: var(–surface2);
+display: flex; align-items: center; justify-content: center;
+font-size: 1.3rem;
+flex-shrink: 0;
+border: 1px solid var(–border);
 }
 
 .card-meta { flex: 1; min-width: 0; }
 
 .card-category {
-  font-size: 0.7rem;
-  color: var(--muted);
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-bottom: 4px;
+font-size: 0.7rem;
+color: var(–muted);
+font-weight: 500;
+letter-spacing: 0.5px;
+text-transform: uppercase;
+margin-bottom: 4px;
 }
 
 .card-question {
-  font-size: 0.97rem;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.35;
+font-size: 0.97rem;
+font-weight: 600;
+color: var(–text);
+line-height: 1.35;
 }
 
 /* ── OUTCOMES ── */
 .card-outcomes {
-  display: flex; gap: 8px;
-  margin-bottom: 14px;
+display: flex; gap: 8px;
+margin-bottom: 14px;
 }
 
 .outcome-pill {
-  flex: 1;
-  padding: 8px 12px;
-  border-radius: var(--radius-sm);
-  display: flex; align-items: center; justify-content: space-between;
-  border: 1px solid var(--border);
-  background: var(--bg);
-  cursor: pointer;
-  transition: all 0.15s;
-  gap: 8px;
+flex: 1;
+padding: 8px 12px;
+border-radius: var(–radius-sm);
+display: flex; align-items: center; justify-content: space-between;
+border: 1px solid var(–border);
+background: var(–bg);
+cursor: pointer;
+transition: all 0.15s;
+gap: 8px;
 }
 
-.outcome-pill.yes:hover { border-color: var(--green); background: var(--green-dim); }
-.outcome-pill.no:hover  { border-color: var(--red);   background: var(--red-dim); }
+.outcome-pill.yes:hover { border-color: var(–green); background: var(–green-dim); }
+.outcome-pill.no:hover  { border-color: var(–red);   background: var(–red-dim); }
 
 .outcome-label {
-  font-size: 0.78rem; font-weight: 600;
-  display: flex; align-items: center; gap: 5px;
+font-size: 0.78rem; font-weight: 600;
+display: flex; align-items: center; gap: 5px;
 }
-.outcome-label.yes-label { color: var(--green); }
-.outcome-label.no-label  { color: var(--red); }
+.outcome-label.yes-label { color: var(–green); }
+.outcome-label.no-label  { color: var(–red); }
 
 .outcome-pct {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text);
+font-family: ‘DM Mono’, monospace;
+font-size: 0.9rem;
+font-weight: 500;
+color: var(–text);
 }
 
 /* ── PROB BAR ── */
 .prob-bar-wrap { margin-bottom: 12px; }
 .prob-bar-track {
-  height: 3px;
-  background: var(--surface2);
-  border-radius: 2px;
-  overflow: hidden;
+height: 3px;
+background: var(–surface2);
+border-radius: 2px;
+overflow: hidden;
 }
 .prob-bar-fill {
-  height: 100%;
-  border-radius: 2px;
-  background: linear-gradient(to right, var(--green), #00e88a);
-  transition: width 0.8s cubic-bezier(0.16,1,0.3,1);
+height: 100%;
+border-radius: 2px;
+background: linear-gradient(to right, var(–green), #00e88a);
+transition: width 0.8s cubic-bezier(0.16,1,0.3,1);
 }
 
 /* ── CARD FOOTER ── */
 .card-footer {
-  display: flex; justify-content: space-between;
-  align-items: center;
-  font-size: 0.75rem; color: var(--muted);
+display: flex; justify-content: space-between;
+align-items: center;
+font-size: 0.75rem; color: var(–muted);
 }
 
 .card-vol {
-  font-family: 'DM Mono', monospace;
-  color: var(--muted);
+font-family: ‘DM Mono’, monospace;
+color: var(–muted);
 }
-.card-vol span { color: var(--gold); }
+.card-vol span { color: var(–gold); }
 
 .card-close { display: flex; align-items: center; gap: 4px; }
 
 .resolved-stamp {
-  position: absolute; top: 14px; right: 14px;
-  font-size: 0.65rem; font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 4px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+position: absolute; top: 14px; right: 14px;
+font-size: 0.65rem; font-weight: 700;
+padding: 4px 10px;
+border-radius: 4px;
+letter-spacing: 1px;
+text-transform: uppercase;
 }
-.stamp-yes { background: var(--green-dim); color: var(--green); border: 1px solid rgba(0,192,118,0.3); }
-.stamp-no  { background: var(--red-dim);   color: var(--red);   border: 1px solid rgba(255,77,77,0.3); }
+.stamp-yes { background: var(–green-dim); color: var(–green); border: 1px solid rgba(0,192,118,0.3); }
+.stamp-no  { background: var(–red-dim);   color: var(–red);   border: 1px solid rgba(255,77,77,0.3); }
 
 /* ── RIGHT SIDEBAR ── */
 .sidebar-right {
-  padding: 24px 16px;
-  border-left: 1px solid var(--border);
-  position: sticky; top: 60px;
-  height: calc(100vh - 60px);
-  overflow-y: auto;
+padding: 24px 16px;
+border-left: 1px solid var(–border);
+position: sticky; top: 60px;
+height: calc(100vh - 60px);
+overflow-y: auto;
 }
 
 .widget {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px;
-  margin-bottom: 16px;
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: var(–radius);
+padding: 16px;
+margin-bottom: 16px;
 }
 
 .widget-title {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 14px;
+font-size: 0.78rem;
+font-weight: 600;
+color: var(–muted);
+letter-spacing: 1px;
+text-transform: uppercase;
+margin-bottom: 14px;
 }
 
 .stat-row {
-  display: flex; justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.82rem;
+display: flex; justify-content: space-between;
+padding: 8px 0;
+border-bottom: 1px solid var(–border);
+font-size: 0.82rem;
 }
 .stat-row:last-child { border-bottom: none; }
-.stat-label { color: var(--muted); }
-.stat-val { font-family: 'DM Mono', monospace; color: var(--text); font-weight: 500; }
-.stat-val.green { color: var(--green); }
-.stat-val.gold  { color: var(--gold); }
+.stat-label { color: var(–muted); }
+.stat-val { font-family: ‘DM Mono’, monospace; color: var(–text); font-weight: 500; }
+.stat-val.green { color: var(–green); }
+.stat-val.gold  { color: var(–gold); }
 
 .tipster-row {
-  display: flex; align-items: center; gap: 10px;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border);
+display: flex; align-items: center; gap: 10px;
+padding: 8px 0;
+border-bottom: 1px solid var(–border);
 }
 .tipster-row:last-child { border-bottom: none; }
 .tipster-avatar {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: var(--surface2);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.9rem;
-  border: 1px solid var(--border);
-  flex-shrink: 0;
+width: 32px; height: 32px; border-radius: 50%;
+background: var(–surface2);
+display: flex; align-items: center; justify-content: center;
+font-size: 0.9rem;
+border: 1px solid var(–border);
+flex-shrink: 0;
 }
 .tipster-info { flex: 1; min-width: 0; }
-.tipster-name { font-size: 0.82rem; font-weight: 600; color: var(--text); }
-.tipster-stats { font-size: 0.72rem; color: var(--muted); }
-.tipster-pct { font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--green); font-weight: 600; }
+.tipster-name { font-size: 0.82rem; font-weight: 600; color: var(–text); }
+.tipster-stats { font-size: 0.72rem; color: var(–muted); }
+.tipster-pct { font-family: ‘DM Mono’, monospace; font-size: 0.82rem; color: var(–green); font-weight: 600; }
 
 /* ── MODALS ── */
 .overlay {
-  display: none; position: fixed; inset: 0;
-  background: rgba(0,0,0,0.75);
-  z-index: 300; justify-content: center; align-items: center;
-  padding: 20px;
-  backdrop-filter: blur(6px);
+display: none; position: fixed; inset: 0;
+background: rgba(0,0,0,0.75);
+z-index: 300; justify-content: center; align-items: center;
+padding: 20px;
+backdrop-filter: blur(6px);
 }
 .overlay.open { display: flex; }
 
 .modal {
-  background: var(--surface);
-  border: 1px solid var(--border2);
-  border-radius: 16px;
-  padding: 28px;
-  width: 100%; max-width: 440px;
-  position: relative;
-  animation: modalIn 0.25s cubic-bezier(0.16,1,0.3,1);
+background: var(–surface);
+border: 1px solid var(–border2);
+border-radius: 16px;
+padding: 28px;
+width: 100%; max-width: 440px;
+position: relative;
+animation: modalIn 0.25s cubic-bezier(0.16,1,0.3,1);
 }
 
 @keyframes modalIn {
-  from { opacity:0; transform: scale(0.93) translateY(16px); }
-  to   { opacity:1; transform: scale(1) translateY(0); }
+from { opacity:0; transform: scale(0.93) translateY(16px); }
+to   { opacity:1; transform: scale(1) translateY(0); }
 }
 
 .modal-close {
-  position: absolute; top:16px; right:18px;
-  background: var(--surface2); border: none;
-  color: var(--muted); font-size: 1.1rem;
-  cursor: pointer; border-radius: 50%;
-  width: 28px; height: 28px;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.15s;
+position: absolute; top:16px; right:18px;
+background: var(–surface2); border: none;
+color: var(–muted); font-size: 1.1rem;
+cursor: pointer; border-radius: 50%;
+width: 28px; height: 28px;
+display: flex; align-items: center; justify-content: center;
+transition: all 0.15s;
 }
-.modal-close:hover { color: var(--text); background: var(--bg); }
+.modal-close:hover { color: var(–text); background: var(–bg); }
 
 .modal-title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.4rem; font-weight: 700;
-  margin-bottom: 4px;
+font-family: ‘Fraunces’, serif;
+font-size: 1.4rem; font-weight: 700;
+margin-bottom: 4px;
 }
-.modal-sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 24px; }
+.modal-sub { font-size: 0.82rem; color: var(–muted); margin-bottom: 24px; }
 
 .field { margin-bottom: 16px; }
 .field-label {
-  font-size: 0.72rem; font-weight: 600;
-  color: var(--muted); letter-spacing: 1px;
-  text-transform: uppercase; margin-bottom: 8px;
+font-size: 0.72rem; font-weight: 600;
+color: var(–muted); letter-spacing: 1px;
+text-transform: uppercase; margin-bottom: 8px;
 }
 .field-input {
-  width: 100%; padding: 11px 14px;
-  background: var(--bg);
-  border: 1px solid var(--border2);
-  border-radius: var(--radius-sm);
-  color: var(--text); font-size: 0.92rem;
-  font-family: 'DM Sans', sans-serif;
-  outline: none; transition: border-color 0.15s;
+width: 100%; padding: 11px 14px;
+background: var(–bg);
+border: 1px solid var(–border2);
+border-radius: var(–radius-sm);
+color: var(–text); font-size: 0.92rem;
+font-family: ‘DM Sans’, sans-serif;
+outline: none; transition: border-color 0.15s;
 }
-.field-input:focus { border-color: var(--green); }
-.field-input::placeholder { color: var(--muted); }
+.field-input:focus { border-color: var(–green); }
+.field-input::placeholder { color: var(–muted); }
 
 select.field-input { cursor: pointer; }
 textarea.field-input { resize: none; }
 
 .input-prefix-wrap {
-  display: flex; align-items: center;
-  background: var(--bg);
-  border: 1px solid var(--border2);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  transition: border-color 0.15s;
+display: flex; align-items: center;
+background: var(–bg);
+border: 1px solid var(–border2);
+border-radius: var(–radius-sm);
+overflow: hidden;
+transition: border-color 0.15s;
 }
-.input-prefix-wrap:focus-within { border-color: var(--green); }
+.input-prefix-wrap:focus-within { border-color: var(–green); }
 .input-prefix {
-  padding: 11px 12px;
-  background: var(--surface2);
-  color: var(--gold);
-  font-family: 'DM Mono', monospace;
-  font-size: 0.82rem;
-  border-right: 1px solid var(--border2);
-  flex-shrink: 0;
+padding: 11px 12px;
+background: var(–surface2);
+color: var(–gold);
+font-family: ‘DM Mono’, monospace;
+font-size: 0.82rem;
+border-right: 1px solid var(–border2);
+flex-shrink: 0;
 }
 .input-prefix-wrap input {
-  flex:1; padding: 11px 14px;
-  background: transparent; border: none;
-  color: var(--text); font-size: 0.92rem;
-  font-family: 'DM Sans', sans-serif;
-  outline: none;
-  font-weight: 600;
+flex:1; padding: 11px 14px;
+background: transparent; border: none;
+color: var(–text); font-size: 0.92rem;
+font-family: ‘DM Sans’, sans-serif;
+outline: none;
+font-weight: 600;
 }
 
 .preset-row { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
-.preset { 
-  padding: 4px 12px;
-  border-radius: 20px; border: 1px solid var(--border2);
-  background: transparent; color: var(--muted);
-  font-size: 0.75rem; cursor: pointer;
-  transition: all 0.15s; font-family: 'DM Sans', sans-serif;
+.preset {
+padding: 4px 12px;
+border-radius: 20px; border: 1px solid var(–border2);
+background: transparent; color: var(–muted);
+font-size: 0.75rem; cursor: pointer;
+transition: all 0.15s; font-family: ‘DM Sans’, sans-serif;
 }
-.preset:hover { border-color: var(--gold); color: var(--gold); background: rgba(245,200,66,0.06); }
+.preset:hover { border-color: var(–gold); color: var(–gold); background: rgba(245,200,66,0.06); }
 
 .choice-grid { display: grid; grid-template-columns:1fr 1fr; gap: 10px; margin-bottom: 16px; }
 .choice-btn {
-  padding: 14px; border-radius: var(--radius-sm);
-  border: 2px solid var(--border2);
-  background: transparent; color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1rem; font-weight: 700;
-  cursor: pointer; transition: all 0.18s;
-  letter-spacing: 1px;
+padding: 14px; border-radius: var(–radius-sm);
+border: 2px solid var(–border2);
+background: transparent; color: var(–text);
+font-family: ‘DM Sans’, sans-serif;
+font-size: 1rem; font-weight: 700;
+cursor: pointer; transition: all 0.18s;
+letter-spacing: 1px;
 }
 .choice-btn.yes:hover, .choice-btn.yes.sel {
-  border-color: var(--green); background: var(--green-dim); color: var(--green);
+border-color: var(–green); background: var(–green-dim); color: var(–green);
 }
 .choice-btn.no:hover, .choice-btn.no.sel {
-  border-color: var(--red); background: var(--red-dim); color: var(--red);
+border-color: var(–red); background: var(–red-dim); color: var(–red);
 }
 
 .payout-box {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 12px 16px;
-  display: flex; justify-content: space-between;
-  align-items: center; margin-bottom: 18px;
+background: var(–bg);
+border: 1px solid var(–border);
+border-radius: var(–radius-sm);
+padding: 12px 16px;
+display: flex; justify-content: space-between;
+align-items: center; margin-bottom: 18px;
 }
-.payout-label { font-size: 0.78rem; color: var(--muted); }
-.payout-val { font-family: 'DM Mono', monospace; font-size: 1.1rem; color: var(--gold); font-weight: 600; }
+.payout-label { font-size: 0.78rem; color: var(–muted); }
+.payout-val { font-family: ‘DM Mono’, monospace; font-size: 1.1rem; color: var(–gold); font-weight: 600; }
 
-.btn-full { width: 100%; padding: 13px; font-size: 0.95rem; border-radius: var(--radius-sm); }
+.btn-full { width: 100%; padding: 13px; font-size: 0.95rem; border-radius: var(–radius-sm); }
 
 .slider-wrap { margin-bottom: 4px; }
 .slider-row { display: flex; align-items: center; gap: 12px; }
-.slider-row input[type=range] { flex:1; accent-color: var(--green); cursor: pointer; }
-.slider-pct { font-family: 'DM Mono', monospace; font-size: 0.9rem; color: var(--green); min-width: 42px; text-align:right; }
-.slider-hint { display: flex; justify-content: space-between; font-size: 0.67rem; color: var(--muted); margin-top:3px; }
+.slider-row input[type=range] { flex:1; accent-color: var(–green); cursor: pointer; }
+.slider-pct { font-family: ‘DM Mono’, monospace; font-size: 0.9rem; color: var(–green); min-width: 42px; text-align:right; }
+.slider-hint { display: flex; justify-content: space-between; font-size: 0.67rem; color: var(–muted); margin-top:3px; }
 
-.divider { height:1px; background: var(--border); margin: 18px 0; }
+.divider { height:1px; background: var(–border); margin: 18px 0; }
 
 /* ── AUTH TABS ── */
-.auth-tabs { display: flex; gap: 4px; margin-bottom: 20px; background: var(--bg); border-radius: var(--radius-sm); padding: 4px; }
-.auth-tab { flex:1; padding: 8px; border-radius: 6px; border:none; background: transparent; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
-.auth-tab.active { background: var(--surface2); color: var(--text); }
+.auth-tabs { display: flex; gap: 4px; margin-bottom: 20px; background: var(–bg); border-radius: var(–radius-sm); padding: 4px; }
+.auth-tab { flex:1; padding: 8px; border-radius: 6px; border:none; background: transparent; color: var(–muted); font-family: ‘DM Sans’, sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.auth-tab.active { background: var(–surface2); color: var(–text); }
 
 /* ── TOAST ── */
 .toast {
-  position: fixed; bottom: 28px; right: 28px;
-  padding: 12px 20px; border-radius: var(--radius-sm);
-  font-size: 0.85rem; font-weight: 600;
-  z-index: 500; transform: translateY(80px); opacity: 0;
-  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
-  display: flex; align-items: center; gap: 8px;
-  max-width: 320px;
+position: fixed; bottom: 28px; right: 28px;
+padding: 12px 20px; border-radius: var(–radius-sm);
+font-size: 0.85rem; font-weight: 600;
+z-index: 500; transform: translateY(80px); opacity: 0;
+transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+display: flex; align-items: center; gap: 8px;
+max-width: 320px;
 }
 .toast.show { transform: translateY(0); opacity:1; }
-.toast.success { background: var(--green); color: #000; }
-.toast.error   { background: var(--red);   color: #fff; }
-.toast.info    { background: var(--surface2); color: var(--text); border: 1px solid var(--border2); }
+.toast.success { background: var(–green); color: #000; }
+.toast.error   { background: var(–red);   color: #fff; }
+.toast.info    { background: var(–surface2); color: var(–text); border: 1px solid var(–border2); }
 
 /* ── EMPTY STATE ── */
 .empty {
-  text-align: center; padding: 60px 20px;
-  color: var(--muted);
+text-align: center; padding: 60px 20px;
+color: var(–muted);
 }
 .empty-icon { font-size: 2.5rem; margin-bottom: 12px; }
-.empty-title { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.empty-title { font-size: 1rem; font-weight: 600; color: var(–text); margin-bottom: 6px; }
 .empty-sub { font-size: 0.82rem; }
+
+/* ── PROFILE MODAL ── */
+.profile-header {
+display: flex; align-items: center; gap: 16px;
+padding: 20px 0; border-bottom: 1px solid var(–border);
+margin-bottom: 20px;
+}
+.profile-avatar {
+width: 56px; height: 56px; border-radius: 50%;
+background: var(–surface2);
+display: flex; align-items: center; justify-content: center;
+font-size: 1.6rem; border: 2px solid var(–border2); flex-shrink: 0;
+}
+.profile-name { font-size: 1.1rem; font-weight: 700; color: var(–text); }
+.profile-role { font-size: 0.78rem; color: var(–muted); margin-top: 2px; text-transform: capitalize; }
+.profile-balance { font-family: ‘DM Mono’, monospace; font-size: 0.88rem; color: var(–green); margin-top: 4px; }
+
+.profile-stats {
+display: grid; grid-template-columns: 1fr 1fr 1fr;
+gap: 8px; margin-bottom: 20px;
+}
+.pstat {
+background: var(–surface2); border-radius: var(–radius-sm);
+padding: 12px; text-align: center; border: 1px solid var(–border);
+}
+.pstat-val { font-family: ‘DM Mono’, monospace; font-size: 1rem; font-weight: 600; color: var(–text); }
+.pstat-label { font-size: 0.68rem; color: var(–muted); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.bet-history-list { display: flex; flex-direction: column; gap: 8px; max-height: 340px; overflow-y: auto; }
+.bet-history-item {
+background: var(–surface2); border-radius: var(–radius-sm);
+padding: 12px 14px; border: 1px solid var(–border);
+display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+}
+.bet-history-q { font-size: 0.82rem; color: var(–text); font-weight: 500; flex: 1; line-height: 1.3; }
+.bet-history-meta { font-size: 0.72rem; color: var(–muted); margin-top: 3px; }
+.bet-history-right { text-align: right; flex-shrink: 0; }
+.bet-choice-badge { font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-bottom: 4px; display: inline-block; }
+.bet-choice-badge.yes { background: var(–green-dim); color: var(–green); }
+.bet-choice-badge.no  { background: var(–red-dim);   color: var(–red); }
+.bet-stake { font-family: ‘DM Mono’, monospace; font-size: 0.82rem; color: var(–text); }
+.bet-status-won  { color: var(–green); font-size: 0.72rem; font-weight: 600; }
+.bet-status-lost { color: var(–red);   font-size: 0.72rem; font-weight: 600; }
+.bet-status-open { color: var(–gold);  font-size: 0.72rem; font-weight: 600; }
+
+/* ── LOGOUT LINK ── */
+.logout-link {
+font-size: 0.82rem; color: var(–red); cursor: pointer;
+background: none; border: none; font-family: ‘DM Sans’, sans-serif;
+font-weight: 500; padding: 9px 10px; border-radius: var(–radius-sm);
+width: 100%; text-align: left; display: flex; align-items: center; gap: 10px;
+transition: all 0.15s;
+}
+.logout-link:hover { background: var(–red-dim); }
 
 /* ── LOADING ── */
 .skeleton {
-  background: linear-gradient(90deg, var(--surface) 25%, var(--surface2) 50%, var(--surface) 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-  border-radius: var(--radius-sm);
+background: linear-gradient(90deg, var(–surface) 25%, var(–surface2) 50%, var(–surface) 75%);
+background-size: 200% 100%;
+animation: shimmer 1.5s infinite;
+border-radius: var(–radius-sm);
 }
 @keyframes shimmer { 0%{background-position:200%} 100%{background-position:-200%} }
 
 /* ── MOBILE ── */
 @media(max-width:900px) {
-  .sidebar-left { display:none; }
-  .sidebar-right { display:none; }
-  .layout { grid-template-columns: 1fr; }
-  nav { padding: 0 16px; }
-  .main-feed { padding: 16px; }
-  .nav-tabs { display:none; }
+.sidebar-left { display:none; }
+.sidebar-right { display:none; }
+.layout { grid-template-columns: 1fr; }
+nav { padding: 0 16px; }
+.main-feed { padding: 16px; }
+.nav-tabs { display:none; }
 }
 </style>
+
 </head>
 <body>
 
 <!-- NAV -->
+
 <nav>
   <a class="nav-logo" href="#"><div class="logo-dot"></div>Poly-Soko</a>
   <div class="nav-tabs">
@@ -644,6 +701,8 @@ textarea.field-input { resize: none; }
   </div>
   <div class="nav-right">
     <span class="nav-balance" id="nav-balance" style="display:none;cursor:pointer" onclick="openDeposit()">KSh 0 💳</span>
+    <button class="btn btn-ghost" id="btn-withdraw-nav" style="display:none;font-size:0.78rem;padding:5px 12px" onclick="openWithdraw()">Withdraw 💸</button>
+    <button class="btn btn-ghost" id="btn-profile-nav" style="display:none;font-size:0.78rem;padding:5px 12px" onclick="openProfile()">👤</button>
     <button class="btn btn-ghost" id="btn-login" onclick="openAuth()">Sign In</button>
     <button class="btn btn-primary" id="btn-register" onclick="openAuth('register')">Register</button>
     <button class="btn btn-primary" id="btn-new-market" style="display:none" onclick="openCreateMarket()">+ Market</button>
@@ -651,9 +710,11 @@ textarea.field-input { resize: none; }
 </nav>
 
 <!-- LAYOUT -->
+
 <div class="layout">
 
   <!-- LEFT SIDEBAR -->
+
   <aside class="sidebar-left">
     <div class="sidebar-section">
       <div class="sidebar-label">Markets</div>
@@ -667,14 +728,19 @@ textarea.field-input { resize: none; }
     </div>
     <div class="sidebar-section">
       <div class="sidebar-label">Account</div>
-      <button class="sidebar-item" id="sb-portfolio" onclick="openAuth()" style="display:none"><span class="sidebar-icon">📊</span>Portfolio</button>
+      <button class="sidebar-item" id="sb-portfolio" onclick="openProfile()" style="display:none"><span class="sidebar-icon">👤</span>My Profile</button>
       <button class="sidebar-item" id="sb-deposit" onclick="openDeposit()"><span class="sidebar-icon">💳</span>Deposit</button>
       <button class="sidebar-item" id="sb-withdraw" onclick="openWithdraw()" style="display:none"><span class="sidebar-icon">💸</span>Withdraw</button>
-      <button class="sidebar-item" onclick="openAuth()"><span class="sidebar-icon">⚙️</span>Settings</button>
+      <button class="logout-link" id="sb-logout" onclick="handleLogout()" style="display:none"><span class="sidebar-icon">🚪</span>Logout</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">History</div>
+      <button class="sidebar-item" onclick="filterTab('resolved',this)"><span class="sidebar-icon">✅</span>Resolved Markets</button>
     </div>
   </aside>
 
   <!-- MAIN FEED -->
+
   <main class="main-feed">
     <div class="feed-header">
       <div class="feed-title" id="feed-title">Trending Markets</div>
@@ -686,52 +752,60 @@ textarea.field-input { resize: none; }
       </div>
     </div>
 
-    <!-- BETA BANNER -->
-    <div class="beta-banner">
-      <span class="beta-tag">TRIAL</span>
-      <span class="beta-text">Poly-Soko is currently in trial phase. Markets use demo balances — real money integration coming soon.</span>
-    </div>
+```
+<!-- BETA BANNER -->
+<div class="beta-banner">
+  <span class="beta-tag">TRIAL</span>
+  <span class="beta-text">Poly-Soko is currently in trial phase. Markets use demo balances — real money integration coming soon.</span>
+</div>
 
-    <!-- MARKETS LIST -->
-    <div class="markets-list" id="markets-list">
-      <div class="empty"><div class="skeleton" style="height:80px;margin-bottom:8px"></div><div class="skeleton" style="height:80px;margin-bottom:8px"></div><div class="skeleton" style="height:80px"></div></div>
-    </div>
+<!-- MARKETS LIST -->
+<div class="markets-list" id="markets-list">
+  <div class="empty"><div class="skeleton" style="height:80px;margin-bottom:8px"></div><div class="skeleton" style="height:80px;margin-bottom:8px"></div><div class="skeleton" style="height:80px"></div></div>
+</div>
+```
+
   </main>
 
   <!-- RIGHT SIDEBAR -->
+
   <aside class="sidebar-right">
 
-    <div class="widget">
-      <div class="widget-title">Platform Stats</div>
-      <div class="stat-row"><span class="stat-label">Active Markets</span><span class="stat-val green" id="stat-active">—</span></div>
-      <div class="stat-row"><span class="stat-label">Total Volume</span><span class="stat-val gold" id="stat-volume">—</span></div>
-      <div class="stat-row"><span class="stat-label">Total Traders</span><span class="stat-val" id="stat-traders">—</span></div>
-      <div class="stat-row"><span class="stat-label">Resolved Today</span><span class="stat-val" id="stat-resolved">—</span></div>
-    </div>
+```
+<div class="widget">
+  <div class="widget-title">Platform Stats</div>
+  <div class="stat-row"><span class="stat-label">Active Markets</span><span class="stat-val green" id="stat-active">—</span></div>
+  <div class="stat-row"><span class="stat-label">Total Volume</span><span class="stat-val gold" id="stat-volume">—</span></div>
+  <div class="stat-row"><span class="stat-label">Total Traders</span><span class="stat-val" id="stat-traders">—</span></div>
+  <div class="stat-row"><span class="stat-label">Resolved Today</span><span class="stat-val" id="stat-resolved">—</span></div>
+</div>
 
-    <div class="widget">
-      <div class="widget-title">Top Tipsters</div>
-      <div id="tipsters-list">
-        <div class="tipster-row"><div class="tipster-avatar">🎯</div><div class="tipster-info"><div class="tipster-name">No tipsters yet</div><div class="tipster-stats">Be the first</div></div></div>
-      </div>
-    </div>
+<div class="widget">
+  <div class="widget-title">Top Tipsters</div>
+  <div id="tipsters-list">
+    <div class="tipster-row"><div class="tipster-avatar">🎯</div><div class="tipster-info"><div class="tipster-name">No tipsters yet</div><div class="tipster-stats">Be the first</div></div></div>
+  </div>
+</div>
 
-    <div class="widget">
-      <div class="widget-title">How It Works</div>
-      <div style="font-size:0.8rem;color:var(--muted);line-height:1.7">
-        <div style="margin-bottom:8px">🟢 <strong style="color:var(--text)">Pick YES or NO</strong> on any market question</div>
-        <div style="margin-bottom:8px">💰 <strong style="color:var(--text)">Stake KSh 50+</strong> minimum per bet</div>
-        <div style="margin-bottom:8px">📊 <strong style="color:var(--text)">Odds update live</strong> as more bets come in</div>
-        <div style="margin-bottom:8px">✅ <strong style="color:var(--text)">Win the pool</strong> when the market resolves in your favour</div>
-        <div>🎯 <strong style="color:var(--text)">Become a Tipster</strong> to post your own markets and earn commission</div>
-      </div>
-    </div>
+<div class="widget">
+  <div class="widget-title">How It Works</div>
+  <div style="font-size:0.8rem;color:var(--muted);line-height:1.7">
+    <div style="margin-bottom:8px">🟢 <strong style="color:var(--text)">Pick YES or NO</strong> on any market question</div>
+    <div style="margin-bottom:8px">💰 <strong style="color:var(--text)">Stake KSh 50+</strong> minimum per bet</div>
+    <div style="margin-bottom:8px">📊 <strong style="color:var(--text)">Odds update live</strong> as more bets come in</div>
+    <div style="margin-bottom:8px">✅ <strong style="color:var(--text)">Win the pool</strong> when the market resolves in your favour</div>
+    <div>🎯 <strong style="color:var(--text)">Become a Tipster</strong> to post your own markets and earn commission</div>
+  </div>
+</div>
+```
 
   </aside>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
+
 <!-- AUTH MODAL -->
+
 <div class="overlay" id="auth-modal">
   <div class="modal" style="max-width:400px">
     <button class="modal-close" onclick="closeModal('auth-modal')">✕</button>
@@ -745,27 +819,59 @@ textarea.field-input { resize: none; }
       <div class="field"><div class="field-label">Mobile Number</div><input class="field-input" id="login-mobile" placeholder="+254 7XX XXX XXX" type="tel"></div>
       <div class="field"><div class="field-label">4-Digit PIN</div><input class="field-input" id="login-pin" placeholder="••••" type="password" maxlength="4"></div>
       <button class="btn btn-primary btn-full" onclick="handleLogin()">Sign In →</button>
-    </div>
-    <div id="auth-register" style="display:none">
-      <div class="modal-title">Create account</div>
-      <div class="modal-sub">Register with your mobile number — used for all deposits and withdrawals</div>
-      <div class="field"><div class="field-label">Full Name</div><input class="field-input" id="reg-name" placeholder="Your full name"></div>
-      <div class="field"><div class="field-label">Mobile Number</div><input class="field-input" id="reg-mobile" placeholder="+254 7XX XXX XXX" type="tel"></div>
-      <div class="field"><div class="field-label">4-Digit PIN</div><input class="field-input" id="reg-pin" placeholder="Choose a PIN" type="password" maxlength="4"></div>
-      <div class="field"><div class="field-label">I am a</div>
-        <select class="field-input" id="reg-role">
-          <option value="punter">Punter — I want to bet on markets</option>
-          <option value="tipster">Tipster — I want to post markets and earn commission</option>
-        </select>
+      <div style="text-align:center;margin-top:14px">
+        <button onclick="switchAuthTab('forgot')" style="background:none;border:none;color:var(--blue);font-size:0.82rem;cursor:pointer;font-family:'DM Sans',sans-serif">Forgot PIN?</button>
       </div>
-      <button class="btn btn-primary btn-full" onclick="handleRegister()">Create Account →</button>
-      <div style="font-size:0.72rem;color:var(--muted);text-align:center;margin-top:12px">Your mobile number is linked to your account permanently and is the only number you can use to deposit or withdraw.</div>
     </div>
+
+```
+<!-- FORGOT PIN — Step 1: enter mobile -->
+<div id="auth-forgot" style="display:none">
+  <div class="modal-title">Reset PIN</div>
+  <div class="modal-sub">Enter your registered mobile number and we'll send you an OTP</div>
+  <div class="field"><div class="field-label">Mobile Number</div><input class="field-input" id="forgot-mobile" placeholder="+254 7XX XXX XXX" type="tel"></div>
+  <button class="btn btn-primary btn-full" onclick="sendForgotOTP()">Send OTP →</button>
+  <div style="text-align:center;margin-top:14px">
+    <button onclick="switchAuthTab('login')" style="background:none;border:none;color:var(--muted);font-size:0.82rem;cursor:pointer;font-family:'DM Sans',sans-serif">← Back to Sign In</button>
+  </div>
+</div>
+
+<!-- FORGOT PIN — Step 2: enter OTP + new PIN -->
+<div id="auth-reset" style="display:none">
+  <div class="modal-title">Enter OTP</div>
+  <div class="modal-sub" id="reset-sub">OTP sent to your number. Enter it below along with your new PIN.</div>
+  <div class="field"><div class="field-label">OTP Code</div><input class="field-input" id="reset-otp" placeholder="6-digit OTP" type="number" maxlength="6"></div>
+  <div class="field"><div class="field-label">New PIN</div><input class="field-input" id="reset-pin1" placeholder="4-digit PIN" type="password" maxlength="4"></div>
+  <div class="field"><div class="field-label">Confirm New PIN</div><input class="field-input" id="reset-pin2" placeholder="Repeat PIN" type="password" maxlength="4"></div>
+  <button class="btn btn-primary btn-full" onclick="confirmResetPIN()">Reset PIN →</button>
+  <div style="text-align:center;margin-top:14px">
+    <button onclick="switchAuthTab('forgot')" style="background:none;border:none;color:var(--muted);font-size:0.82rem;cursor:pointer;font-family:'DM Sans',sans-serif">← Resend OTP</button>
+  </div>
+</div>
+<div id="auth-register" style="display:none">
+  <div class="modal-title">Create account</div>
+  <div class="modal-sub">Register with your mobile number — used for all deposits and withdrawals</div>
+  <div class="field"><div class="field-label">Full Name</div><input class="field-input" id="reg-name" placeholder="Your full name"></div>
+  <div class="field"><div class="field-label">Mobile Number</div><input class="field-input" id="reg-mobile" placeholder="+254 7XX XXX XXX" type="tel"></div>
+  <div class="field"><div class="field-label">4-Digit PIN</div><input class="field-input" id="reg-pin" placeholder="Choose a PIN" type="password" maxlength="4"></div>
+  <div class="field"><div class="field-label">I am a</div>
+    <select class="field-input" id="reg-role">
+      <option value="punter">Punter — I want to bet on markets</option>
+      <option value="tipster">Tipster — I want to post markets and earn commission</option>
+    </select>
+  </div>
+  <button class="btn btn-primary btn-full" onclick="handleRegister()">Create Account →</button>
+  <div style="font-size:0.72rem;color:var(--muted);text-align:center;margin-top:12px">Your mobile number is linked to your account permanently and is the only number you can use to deposit or withdraw.</div>
+</div>
+```
+
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
+
 <!-- BET MODAL -->
+
 <div class="overlay" id="bet-modal">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('bet-modal')">✕</button>
@@ -798,7 +904,9 @@ textarea.field-input { resize: none; }
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
+
 <!-- CREATE MARKET MODAL -->
+
 <div class="overlay" id="create-modal">
   <div class="modal" style="max-width:500px">
     <button class="modal-close" onclick="closeModal('create-modal')">✕</button>
@@ -844,98 +952,142 @@ textarea.field-input { resize: none; }
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
+
 <!-- DEPOSIT MODAL -->
+
 <div class="overlay" id="deposit-modal">
   <div class="modal" style="max-width:400px">
     <button class="modal-close" onclick="closeModal('deposit-modal')">✕</button>
     <div class="modal-title">Deposit via M-Pesa</div>
     <div class="modal-sub">An STK push will be sent to your M-Pesa number. Enter your PIN to complete.</div>
 
-    <div class="field">
-      <div class="field-label">M-Pesa Number</div>
-      <div class="input-prefix-wrap">
-        <span class="input-prefix">+254</span>
-        <input type="tel" id="dep-phone" placeholder="7XX XXX XXX" maxlength="9">
-      </div>
-      <div style="font-size:0.72rem;color:var(--muted);margin-top:6px">Must be the number registered to your account</div>
-    </div>
+```
+<div class="field">
+  <div class="field-label">M-Pesa Number</div>
+  <div class="input-prefix-wrap">
+    <span class="input-prefix">+254</span>
+    <input type="tel" id="dep-phone" placeholder="7XX XXX XXX" maxlength="9">
+  </div>
+  <div style="font-size:0.72rem;color:var(--muted);margin-top:6px">Must be the number registered to your account</div>
+</div>
 
-    <div class="field">
-      <div class="field-label">Amount (KSh)</div>
-      <div class="input-prefix-wrap">
-        <span class="input-prefix">KSh</span>
-        <input type="number" id="dep-amount" placeholder="Min 100" min="100">
-      </div>
-      <div class="preset-row">
-        <button class="preset" onclick="setDepAmount(100)">100</button>
-        <button class="preset" onclick="setDepAmount(500)">500</button>
-        <button class="preset" onclick="setDepAmount(1000)">1K</button>
-        <button class="preset" onclick="setDepAmount(5000)">5K</button>
-        <button class="preset" onclick="setDepAmount(10000)">10K</button>
-      </div>
-    </div>
+<div class="field">
+  <div class="field-label">Amount (KSh)</div>
+  <div class="input-prefix-wrap">
+    <span class="input-prefix">KSh</span>
+    <input type="number" id="dep-amount" placeholder="Min 100" min="100">
+  </div>
+  <div class="preset-row">
+    <button class="preset" onclick="setDepAmount(100)">100</button>
+    <button class="preset" onclick="setDepAmount(500)">500</button>
+    <button class="preset" onclick="setDepAmount(1000)">1K</button>
+    <button class="preset" onclick="setDepAmount(5000)">5K</button>
+    <button class="preset" onclick="setDepAmount(10000)">10K</button>
+  </div>
+</div>
 
-    <div class="payout-box" id="dep-summary" style="display:none">
-      <span class="payout-label">You will receive</span>
-      <span class="payout-val" id="dep-summary-val">KSh 0</span>
-    </div>
+<div class="payout-box" id="dep-summary" style="display:none">
+  <span class="payout-label">You will receive</span>
+  <span class="payout-val" id="dep-summary-val">KSh 0</span>
+</div>
 
-    <div id="dep-status" style="display:none;text-align:center;padding:20px 0">
-      <div style="font-size:2rem;margin-bottom:8px">📱</div>
-      <div style="font-weight:600;color:var(--text);margin-bottom:4px">Check your phone</div>
-      <div style="font-size:0.82rem;color:var(--muted)">Enter your M-Pesa PIN to complete the deposit</div>
-      <div style="margin-top:16px">
-        <button class="btn btn-ghost" style="font-size:0.8rem" onclick="checkDepositStatus()">Check Status</button>
-      </div>
-    </div>
+<div id="dep-status" style="display:none;text-align:center;padding:20px 0">
+  <div style="font-size:2rem;margin-bottom:8px">📱</div>
+  <div style="font-weight:600;color:var(--text);margin-bottom:4px">Check your phone</div>
+  <div style="font-size:0.82rem;color:var(--muted)">Enter your M-Pesa PIN to complete the deposit</div>
+  <div style="margin-top:16px">
+    <button class="btn btn-ghost" style="font-size:0.8rem" onclick="checkDepositStatus()">Check Status</button>
+  </div>
+</div>
 
-    <button class="btn btn-primary btn-full" id="dep-btn" onclick="initiateDeposit()">Send STK Push →</button>
+<button class="btn btn-primary btn-full" id="dep-btn" onclick="initiateDeposit()">Send STK Push →</button>
+```
+
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
+
 <!-- WITHDRAW MODAL -->
+
 <div class="overlay" id="withdraw-modal">
   <div class="modal" style="max-width:400px">
     <button class="modal-close" onclick="closeModal('withdraw-modal')">✕</button>
     <div class="modal-title">Withdraw via M-Pesa</div>
     <div class="modal-sub">Funds sent directly to your registered M-Pesa number.</div>
 
-    <div class="payout-box">
-      <span class="payout-label">Available Balance</span>
-      <span class="payout-val" id="withdraw-balance">KSh 0</span>
-    </div>
+```
+<div class="payout-box">
+  <span class="payout-label">Available Balance</span>
+  <span class="payout-val" id="withdraw-balance">KSh 0</span>
+</div>
 
-    <div class="field">
-      <div class="field-label">Amount (KSh)</div>
-      <div class="input-prefix-wrap">
-        <span class="input-prefix">KSh</span>
-        <input type="number" id="with-amount" placeholder="Min 200" min="200">
+<div class="field">
+  <div class="field-label">Amount (KSh)</div>
+  <div class="input-prefix-wrap">
+    <span class="input-prefix">KSh</span>
+    <input type="number" id="with-amount" placeholder="Min 200" min="200">
+  </div>
+</div>
+
+<div class="field">
+  <div class="field-label">Send To</div>
+  <div class="input-prefix-wrap">
+    <span class="input-prefix">+254</span>
+    <input type="tel" id="with-phone" placeholder="7XX XXX XXX" maxlength="9">
+  </div>
+  <div style="font-size:0.72rem;color:var(--muted);margin-top:6px">1% fee (min KSh 20) deducted automatically</div>
+</div>
+
+<div class="payout-box">
+  <span class="payout-label">You will receive</span>
+  <span class="payout-val" id="with-net">KSh 0</span>
+</div>
+
+<button class="btn btn-primary btn-full" onclick="initiateWithdrawal()">Withdraw →</button>
+```
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<!-- PROFILE MODAL -->
+
+<div class="overlay" id="profile-modal">
+  <div class="modal" style="max-width:520px">
+    <button class="modal-close" onclick="closeModal('profile-modal')">✕</button>
+    <div class="profile-header">
+      <div class="profile-avatar" id="profile-avatar-emoji">👤</div>
+      <div>
+        <div class="profile-name" id="profile-name">—</div>
+        <div class="profile-role" id="profile-role">—</div>
+        <div class="profile-balance" id="profile-balance">KSh 0</div>
       </div>
     </div>
-
-    <div class="field">
-      <div class="field-label">Send To</div>
-      <div class="input-prefix-wrap">
-        <span class="input-prefix">+254</span>
-        <input type="tel" id="with-phone" placeholder="7XX XXX XXX" maxlength="9">
-      </div>
-      <div style="font-size:0.72rem;color:var(--muted);margin-top:6px">1% fee (min KSh 20) deducted automatically</div>
+    <div class="profile-stats">
+      <div class="pstat"><div class="pstat-val" id="profile-total-bets">0</div><div class="pstat-label">Total Bets</div></div>
+      <div class="pstat"><div class="pstat-val" id="profile-win-rate">0%</div><div class="pstat-label">Win Rate</div></div>
+      <div class="pstat"><div class="pstat-val" id="profile-total-won">KSh 0</div><div class="pstat-label">Total Won</div></div>
     </div>
-
-    <div class="payout-box">
-      <span class="payout-label">You will receive</span>
-      <span class="payout-val" id="with-net">KSh 0</span>
+    <div class="modal-sub" style="margin-bottom:12px;font-weight:600;color:var(--text)">Betting History</div>
+    <div class="bet-history-list" id="profile-bets-list">
+      <div class="empty"><div class="empty-icon">🎲</div><div class="empty-title">No bets yet</div></div>
     </div>
-
-    <button class="btn btn-primary btn-full" onclick="initiateWithdrawal()">Withdraw →</button>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px">
+      <button class="btn btn-ghost btn-full" onclick="closeModal('profile-modal');openDeposit()">💳 Deposit</button>
+      <button class="btn btn-ghost btn-full" onclick="closeModal('profile-modal');openWithdraw()">💸 Withdraw</button>
+    </div>
+    <button class="btn btn-full" style="margin-top:10px;background:var(--red-dim);color:var(--red);border:1px solid rgba(255,77,77,0.3)" onclick="closeModal('profile-modal');handleLogout()">🚪 Logout</button>
   </div>
 </div>
 
 <!-- FLOATING POST BUTTON (mobile tipsters) -->
+
 <button id="fab-post" onclick="openCreateMarket()" style="display:none;position:fixed;bottom:28px;right:20px;z-index:250;background:var(--green);color:#000;border:none;border-radius:50px;padding:14px 22px;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;box-shadow:0 8px 32px rgba(0,192,118,0.4)">+ Post Market</button>
 
 <!-- TOAST -->
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -986,7 +1138,13 @@ function renderMarkets() {
   let markets = [...allMarkets];
 
   // Filter
-  if (currentFilter !== 'all') markets = markets.filter(m => m.category === currentFilter);
+  if (currentFilter === 'resolved') {
+    markets = markets.filter(m => m.status === 'resolved' || m.resolution);
+  } else if (currentFilter !== 'all') {
+    markets = markets.filter(m => m.category === currentFilter && m.status !== 'resolved');
+  } else {
+    markets = markets.filter(m => m.status !== 'resolved');
+  }
 
   // Sort
   if (currentSort === 'volume')  markets.sort((a,b) => b.total_volume_ksh - a.total_volume_ksh);
@@ -1012,10 +1170,13 @@ function renderMarkets() {
     const icon = catIcon[m.category] || '💡';
     const resolvedHTML = m.resolution
       ? `<div class="resolved-stamp stamp-${m.resolution}">Resolved ${m.resolution.toUpperCase()}</div>` : '';
-    const isLocked = m.status === 'resolved' || m.status === 'closed' || m.status === 'voided';
+    const isClosed = diff <= 0;
+    const isLocked = m.status === 'resolved' || m.status === 'closed' || m.status === 'voided' || isClosed;
+    const closedBanner = isClosed && !m.resolution
+      ? `<div class="resolved-stamp" style="background:rgba(107,114,128,0.15);color:#6B7280;border:1px solid rgba(107,114,128,0.3);top:14px;right:14px">CLOSED</div>` : '';
 
-    return `<div class="market-card" style="animation-delay:${i*0.05}s" onclick="${isLocked ? '' : `openBet('${m.id}')`}">
-      ${resolvedHTML}
+    return `<div class="market-card${isLocked ? ' resolved-card' : ''}" style="animation-delay:${i*0.05}s" onclick="${isLocked ? '' : `openBet('${m.id}')`}">
+      ${resolvedHTML}${closedBanner}
       <div class="card-top">
         <div class="card-icon">${icon}</div>
         <div class="card-meta">
@@ -1023,16 +1184,31 @@ function renderMarkets() {
           <div class="card-question">${m.question}</div>
         </div>
       </div>
+      ${isLocked ? `
+      <div style="padding:10px 0 6px;display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.82rem">
+        <span style="font-size:1rem">🔒</span>
+        <span>${m.resolution ? 'Market resolved — no more bets' : 'Market closed — betting ended'}</span>
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:10px">
+        <div style="flex:1;padding:8px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--border);opacity:0.5;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.78rem;font-weight:600;color:var(--muted)">↑ YES</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.9rem;color:var(--muted)">${yes}¢</span>
+        </div>
+        <div style="flex:1;padding:8px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--border);opacity:0.5;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.78rem;font-weight:600;color:var(--muted)">↓ NO</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.9rem;color:var(--muted)">${no}¢</span>
+        </div>
+      </div>` : `
       <div class="card-outcomes">
-        <div class="outcome-pill yes" onclick="event.stopPropagation();${isLocked?'':` openBetChoice('${m.id}','yes')`}">
+        <div class="outcome-pill yes" onclick="event.stopPropagation(); openBetChoice('${m.id}','yes')">
           <span class="outcome-label yes-label">↑ YES</span>
           <span class="outcome-pct">${yes}¢</span>
         </div>
-        <div class="outcome-pill no" onclick="event.stopPropagation();${isLocked?'':` openBetChoice('${m.id}','no')`}">
+        <div class="outcome-pill no" onclick="event.stopPropagation(); openBetChoice('${m.id}','no')">
           <span class="outcome-label no-label">↓ NO</span>
           <span class="outcome-pct">${no}¢</span>
         </div>
-      </div>
+      </div>`}
       <div class="prob-bar-wrap">
         <div class="prob-bar-track"><div class="prob-bar-fill" style="width:${yes}%"></div></div>
       </div>
@@ -1091,7 +1267,7 @@ async function seedDemoMarkets() {
 }
 
 // ── FILTER & SORT ────────────────────────────────────────────────────────────
-const titleMap = { all:'Trending Markets', politics:'Politics', economy:'Economy', weather:'Weather', sports:'Sports', traffic:'Traffic', other:'Other' };
+const titleMap = { all:'Trending Markets', politics:'Politics', economy:'Economy', weather:'Weather', sports:'Sports', traffic:'Traffic', other:'Other', resolved:'✅ Resolved Markets' };
 
 function filterTab(cat, el) {
   currentFilter = cat;
@@ -1117,8 +1293,75 @@ function openAuth(tab = 'login') {
 function switchAuthTab(tab) {
   document.getElementById('auth-login').style.display    = tab === 'login'    ? '' : 'none';
   document.getElementById('auth-register').style.display = tab === 'register' ? '' : 'none';
+  document.getElementById('auth-forgot').style.display   = tab === 'forgot'   ? '' : 'none';
+  document.getElementById('auth-reset').style.display    = tab === 'reset'    ? '' : 'none';
   document.getElementById('tab-login').classList.toggle('active',    tab === 'login');
   document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+}
+
+// ── FORGOT PIN ────────────────────────────────────────────────────────────────
+let forgotMobile = null;
+let generatedOTP = null;
+
+async function sendForgotOTP() {
+  const mobile = document.getElementById('forgot-mobile').value.trim().replace(/\s/g,'');
+  if (!mobile) { showToast('Enter your mobile number', 'error'); return; }
+
+  // Check if mobile exists
+  const { data } = await sb.from('users').select('id, full_name').eq('mobile', mobile).maybeSingle();
+  if (!data) { showToast('Mobile number not found', 'error'); return; }
+
+  // Generate 6-digit OTP and store in Supabase otp_verifications
+  generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+  forgotMobile = mobile;
+
+  const expires = new Date(Date.now() + 10 * 60 * 1000).toISOString(); // 10 min
+  await sb.from('otp_verifications').insert({
+    mobile,
+    code_hash: btoa(generatedOTP),
+    purpose: 'reset_pin',
+    expires_at: expires,
+    used: false,
+  });
+
+  // Show OTP in toast (in production this would be an SMS via Africa's Talking)
+  showToast('OTP: ' + generatedOTP + ' (save this!)', 'info');
+  document.getElementById('reset-sub').textContent = `OTP sent to ${mobile}. Valid for 10 minutes.`;
+  switchAuthTab('reset');
+}
+
+async function confirmResetPIN() {
+  const otp  = document.getElementById('reset-otp').value.trim();
+  const pin1 = document.getElementById('reset-pin1').value.trim();
+  const pin2 = document.getElementById('reset-pin2').value.trim();
+
+  if (!otp)  { showToast('Enter the OTP', 'error'); return; }
+  if (!pin1 || pin1.length !== 4 || isNaN(pin1)) { showToast('PIN must be 4 digits', 'error'); return; }
+  if (pin1 !== pin2) { showToast('PINs do not match', 'error'); return; }
+
+  // Verify OTP from Supabase
+  const { data: otpRow } = await sb
+    .from('otp_verifications')
+    .select('*')
+    .eq('mobile', forgotMobile)
+    .eq('purpose', 'reset_pin')
+    .eq('used', false)
+    .order('created_at', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  if (!otpRow) { showToast('OTP expired or invalid. Request a new one.', 'error'); return; }
+  if (new Date(otpRow.expires_at) < new Date()) { showToast('OTP has expired. Request a new one.', 'error'); return; }
+  if (otpRow.code_hash !== btoa(otp)) { showToast('Incorrect OTP', 'error'); return; }
+
+  // Update PIN
+  await sb.from('users').update({ pin_hash: btoa(pin1) }).eq('mobile', forgotMobile);
+  await sb.from('otp_verifications').update({ used: true }).eq('id', otpRow.id);
+
+  showToast('PIN reset successfully! Sign in with your new PIN.', 'success');
+  forgotMobile = null;
+  generatedOTP = null;
+  switchAuthTab('login');
 }
 
 async function handleRegister() {
@@ -1174,6 +1417,9 @@ function updateNavForUser() {
   document.getElementById('nav-balance').style.display  = '';
   document.getElementById('nav-balance').textContent    = 'KSh ' + Number(currentUser.balance_ksh).toLocaleString() + ' 💳';
   document.getElementById('sb-withdraw').style.display  = '';
+  document.getElementById('sb-logout').style.display    = '';
+  document.getElementById('btn-withdraw-nav').style.display = '';
+  document.getElementById('btn-profile-nav').style.display  = '';
   if (currentUser.role === 'tipster' || currentUser.role === 'admin') {
     document.getElementById('btn-new-market').style.display = '';
     document.getElementById('btn-post-market').style.display = '';
@@ -1326,6 +1572,73 @@ async function submitMarket() {
   await loadMarkets();
   await loadStats();
   showToast('Market posted! 🎯 KSh 500 bond held.');
+}
+
+// ── LOGOUT ───────────────────────────────────────────────────────────────────
+function handleLogout() {
+  currentUser = null;
+  document.getElementById('nav-balance').style.display  = 'none';
+  document.getElementById('btn-login').style.display    = '';
+  document.getElementById('btn-register').style.display = '';
+  document.getElementById('btn-new-market').style.display = 'none';
+  document.getElementById('btn-post-market').style.display = 'none';
+  document.getElementById('fab-post').style.display    = 'none';
+  document.getElementById('sb-portfolio').style.display = 'none';
+  document.getElementById('sb-withdraw').style.display  = 'none';
+  document.getElementById('sb-logout').style.display    = 'none';
+  document.getElementById('btn-withdraw-nav').style.display = 'none';
+  document.getElementById('btn-profile-nav').style.display  = 'none';
+  showToast('Logged out successfully', 'info');
+}
+
+// ── PROFILE & BETTING HISTORY ─────────────────────────────────────────────────
+async function openProfile() {
+  if (!currentUser) { openAuth(); return; }
+
+  // Fetch user's bets with market questions
+  const { data: bets } = await sb
+    .from('bets')
+    .select('*, markets(question, status, resolution)')
+    .eq('user_id', currentUser.id)
+    .order('created_at', { ascending: false });
+
+  const totalBets = bets ? bets.length : 0;
+  const wonBets   = bets ? bets.filter(b => b.status === 'won').length : 0;
+  const totalStaked = bets ? bets.reduce((s,b) => s + Number(b.stake_ksh), 0) : 0;
+  const totalWon    = bets ? bets.filter(b=>b.status==='won').reduce((s,b) => s + Number(b.payout_ksh||0), 0) : 0;
+  const winRate = totalBets > 0 ? Math.round((wonBets/totalBets)*100) : 0;
+
+  const roleEmoji = { punter: '🎯', tipster: '📡', admin: '🛡' };
+
+  const betsHTML = totalBets === 0
+    ? `<div class="empty"><div class="empty-icon">🎲</div><div class="empty-title">No bets yet</div><div class="empty-sub">Place your first bet on any market</div></div>`
+    : (bets || []).map(b => {
+        const mkt = b.markets || {};
+        const statusClass = b.status === 'won' ? 'bet-status-won' : b.status === 'lost' ? 'bet-status-lost' : 'bet-status-open';
+        const statusText  = b.status === 'won' ? `Won KSh ${Number(b.payout_ksh||0).toLocaleString()}` : b.status === 'lost' ? 'Lost' : 'Pending';
+        return `<div class="bet-history-item">
+          <div>
+            <div class="bet-history-q">${mkt.question || 'Market closed'}</div>
+            <div class="bet-history-meta">${new Date(b.created_at).toLocaleDateString()}</div>
+          </div>
+          <div class="bet-history-right">
+            <div class="bet-choice-badge ${b.choice}">${b.choice.toUpperCase()}</div>
+            <div class="bet-stake">KSh ${Number(b.stake_ksh).toLocaleString()}</div>
+            <div class="${statusClass}">${statusText}</div>
+          </div>
+        </div>`;
+      }).join('');
+
+  document.getElementById('profile-avatar-emoji').textContent = roleEmoji[currentUser.role] || '👤';
+  document.getElementById('profile-name').textContent    = currentUser.full_name;
+  document.getElementById('profile-role').textContent    = currentUser.role;
+  document.getElementById('profile-balance').textContent = 'KSh ' + Number(currentUser.balance_ksh).toLocaleString();
+  document.getElementById('profile-total-bets').textContent  = totalBets;
+  document.getElementById('profile-win-rate').textContent    = winRate + '%';
+  document.getElementById('profile-total-won').textContent   = 'KSh ' + totalWon.toLocaleString();
+  document.getElementById('profile-bets-list').innerHTML = betsHTML;
+
+  document.getElementById('profile-modal').classList.add('open');
 }
 
 // ── UTILS ────────────────────────────────────────────────────────────────────
@@ -1510,5 +1823,6 @@ async function initiateWithdrawal() {
 // ── START ────────────────────────────────────────────────────────────────────
 init();
 </script>
+
 </body>
 </html>
