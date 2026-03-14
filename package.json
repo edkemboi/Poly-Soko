@@ -1,0 +1,9 @@
+{
+  "name": "poly-soko",
+  "version": "1.0.0",
+  "description": "Poly-Soko Prediction Markets — East Africa",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.0.0",
+    "bcryptjs": "^2.4.3"
+  }
+}
